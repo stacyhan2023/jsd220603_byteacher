@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            /*块级元素 独占一行 可以修改宽高*/
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+        span{
+            /*行内元素 共占一行 不能修改宽高*/
+            border: 1px solid blue;
+            width: 100px;
+            height: 100px;
+        }
+        img{
+            /*行内块元素 共占一行 可以修改宽高*/
+            width: 100px;
+            height: 100px;
+        }
+        a{
+            background-color: #0aa1ed;
+            width: 132px;
+            height: 40px;
+            /*如果行内元素需要修改宽高, 必须将显示方式改成block或inline-block*/
+            display: block;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 3px;/*设置圆角,值越大越圆*/
+        }
+    </style>
+</head>
+<body>
+<a href="">查看详情</a>
+<img src="../imgs/a.jpg" alt="">
+<img src="../imgs/a.jpg" alt="">
+<img src="../imgs/a.jpg" alt="">
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<span>span1</span>
+<span>span2</span>
+<span>span3</span>
+</body>
+</html>
