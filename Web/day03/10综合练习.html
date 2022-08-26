@@ -88,12 +88,32 @@
       /*设置动画持续时间*/
       transition-duration: 2s;
     }
-    #t_l_div>img:hover{
+    #t_div img:hover{
       /*让图片缩放1.25倍*/
       transform: scale(1.1);
     }
     #t_l_div{
       position: relative;/*做参照物*/
+    }
+    /*右上相关样式*/
+    #t_r_div>div{
+      width: 253px;
+      height: 232px;
+      margin: 39px 0 0 25px;
+      position: relative;
+      z-index: 1;
+    }
+    #t_r_div>img{
+      width: 292px;
+      height: 232px;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      /*设置动画持续时间*/
+      transition-duration: 1.5s;
+    }
+    #t_r_div{
+      position: relative;
     }
 
 
