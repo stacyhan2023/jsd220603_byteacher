@@ -6,7 +6,8 @@
   <style>
     body>div{
       width: 1000px;
-      background-color: #0aa1ed;
+      /*块级元素自身居中*/
+      margin: 0 auto;
     }
     #t_l_div{
       width: 611px;
@@ -22,6 +23,28 @@
     }
     #t_div{
       overflow: hidden;
+      margin-bottom: 10px;
+    }
+    #b_l_div{
+      width: 366px;
+      height: 233px;
+      float: left;
+    }
+    #b_r_div{
+      float: right;
+    }
+    #b_div{
+      overflow: hidden;
+    }
+    /*设置背景颜色*/
+    #t_div>div,#b_l_div,#b_r_div>div{
+      background-color: #e8e8e8;
+    }
+    #b_r_div>div{
+      width: 198px;
+      height: 233px;
+      float: left;
+      margin-left: 10px;
     }
   </style>
 </head>

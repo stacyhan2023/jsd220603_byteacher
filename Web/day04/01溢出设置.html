@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body>div{
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      /*设置超出的部分:显示(默认)visible/隐藏hidden/滚动显示scroll*/
+      overflow: scroll;
+    }
+    body>img{
+      width: 100px;
+        /*设置行内元素垂直对齐方式:
+        top上对齐,
+        middle中间对齐,
+        bottom下对齐,
+        baseline基线对齐*/
+        vertical-align: bottom;
+    }
+  </style>
+</head>
+<body>
+<input type="text"><img src="../imgs/a.jpg" alt="">
+<div>
+  <img src="../imgs/a.jpg" alt="">
+</div>
+</body>
+</html>
