@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text">
+<input type="button" value="平方" onclick="f()">
+<div>结果:</div>
+<script>
+    function f() {
+        let d = document.querySelector("div");
+        let i = document.querySelector("input");
+        //判断用户输入的内容是否是数值
+        if (isNaN(i.value)){
+            d.innerText = "输入错误!";
+            return;
+        }
+        //把文本框里面的内容相乘得到平方的值    NaN*NaN
+        // d.innerText = "结果:"+ i.value*i.value;
+        //当变量进行-*/运算时会自动将变量转成数值   如果两个变量是字符串加法运算是字符串拼接
+        //   "结果:"+"5"+"5"     "结果:"+10
+
+        //让文本框的值*1 就是将文本框里面的字符串自动转成数值
+       // d.innerText = "结果:"+(i.value*1+i.value*1);
+        //parseFloat 将字符串转成整数或小数
+        d.innerText = "结果:"+(parseFloat(i.value)+parseFloat(i.value));
+    }
+</script>
+</body>
+</html>
