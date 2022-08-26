@@ -79,6 +79,23 @@
       color: white;
       font-size: 20px;
     }
+    #t_l_div>img{
+      position: absolute;
+      right: 20px;
+      top: 35px;
+      width: 318px;
+      height: 319px;
+      /*设置动画持续时间*/
+      transition-duration: 2s;
+    }
+    #t_l_div>img:hover{
+      /*让图片缩放1.25倍*/
+      transform: scale(1.1);
+    }
+    #t_l_div{
+      position: relative;/*做参照物*/
+    }
+
 
   </style>
 </head>
@@ -95,7 +112,16 @@
       </div>
       <img src="http://doc.canglaoshi.org/tstore_v1/images/itemCat/study_computer_img1.png" alt="">
     </div>
-    <div id="t_r_div"></div>
+    <div id="t_r_div">
+      <div>
+        <p class="title_p">颜值 框不住</p>
+        <p>酷睿双核i5处理器|256GB SSD| 8GB内存<br>
+          英特尔HD显卡620含共享显卡内存</p>
+        <p class="price_p">￥6888.00</p>
+        <a href="">查看详情</a>
+      </div>
+      <img src="http://doc.canglaoshi.org/tstore_v1/images/itemCat/study_computer_img2.png" alt="">
+    </div>
   </div>
   <div id="b_div">
     <div id="b_l_div"></div>
