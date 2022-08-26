@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
+<!--通过按钮调用方法-->
+<input type="button" value="按钮" onclick="f1()">
 <script>
   //1. 无参无返回值方法
   function f1() {
@@ -37,11 +39,6 @@
   //第三种定义方法的方式
   let f6 = new Function("name","age","console.log(name+':'+age)");
   f6("王五",20);
-
-
-
-
-
 
 
 </script>
