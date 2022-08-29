@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="请输入添加图片的数量" id="i1">
+<input type="button" value="帅哥" onclick="f(1)">
+<input type="button" value="美女" onclick="f(2)">
+<hr>
+<script>
+function f(x) {
+    let  imgName = x==1?"a.jpg":"b.jpg";
+    //得到文本框
+    let i1 = document.querySelector("#i1");
+    for (let i = 0; i < i1.value; i++) {
+        //创建图片标签
+        let img = document.createElement("img");
+        img.src = imgName;
+        img.width = 100;//设置宽度
+        //添加到body里面
+        document.body.append(img);
+    }
+
+
+
+
+}
+</script>
+</body>
+</html>
