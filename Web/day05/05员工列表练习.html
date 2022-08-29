@@ -20,10 +20,24 @@
 <script>
     function f() {
         // 1.创建tr
+        let tr = document.createElement("tr");
         // 2.创建3个td
+        let nameTd = document.createElement("td");
+        let salaryTd = document.createElement("td");
+        let jobTd = document.createElement("td");
         // 3.得到3个文本框并把3个文本框的值给到3个td
+        // let i1 = document.querySelector("#i1");
+        // let i2 = document.querySelector("#i2");
+        // let i3 = document.querySelector("#i3");
+        nameTd.innerText = i1.value;
+        salaryTd.innerText = i2.value;
+        jobTd.innerText = i3.value;
         //4. 把td装进tr
+        tr.append(nameTd,salaryTd,jobTd);
         //5. 得到table  并把tr装进table
+        let table = document.querySelector("table");
+        table.append(tr);
+
     }
 </script>
 </body>
