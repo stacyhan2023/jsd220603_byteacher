@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: Microsoft YaHei, Helvetica Neue, Helvetica, STHeiTi, Arial, sans-serif;
+            font-size: 12px;
+            background-color: #666;
+        }
+        body>div{
+            width: 1200px;
+            margin: 0 auto;/*居中*/
+        }
+        body>div>div{
+            width: 220px;  /*1200/5=240 每个240的空间  10+220+10=240        */
+            margin: 0 10px;/*设置每个div之间的间距*/
+            float: left;
+            border-radius: 5px;
+            overflow: hidden;/*超出部分隐藏,为了看出圆角*/
+            background-color: #fff;
+        }
+        body>div>div:hover{
+            position: relative;
+            bottom: 5px;
+            /*元素阴影:x偏移值 y偏移值 浓度 范围 颜色*/
+            box-shadow: 0 0 8px 5px red;
+        }
+        img{
+            width: 100%;/*上级元素的宽度*/
+        }
+        .b_div{
+            padding: 15px;
+        }
+        .b_div>a{
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            height: 40px;
+            display: block;
+        }
+        .free_span{
+            color: #4f8dfe;
+        }
+        .count_span{
+            float: right;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+  <div>
+    <div class="t_div">
+        <a href="">
+            <img src="https://cdn.tmooc.cn/bsfile//courseImg///5f791c0985cc4a67a5c4dca6627155b0.jpg" alt="">
+        </a>
+    </div>
+    <div class="b_div">
+        <a href="">【商业插画】三分钟解锁表情包</a>
+        <div>
+            <span class="free_span">免费</span>
+            <span class="count_span">1,101人报名</span>
+        </div>
+    </div>
+  </div>
+    <div>
+        <div class="t_div">
+            <a href="">
+                <img src="https://cdn.tmooc.cn/bsfile//courseImg///5f791c0985cc4a67a5c4dca6627155b0.jpg" alt="">
+            </a>
+        </div>
+        <div class="b_div">
+            <a href="">【商业插画】三分钟解锁表情包</a>
+            <div>
+                <span class="free_span">免费</span>
+                <span class="count_span">1,101人报名</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="t_div">
+            <a href="">
+                <img src="https://cdn.tmooc.cn/bsfile//courseImg///5f791c0985cc4a67a5c4dca6627155b0.jpg" alt="">
+            </a>
+        </div>
+        <div class="b_div">
+            <a href="">【商业插画】三分钟解锁表情包</a>
+            <div>
+                <span class="free_span">免费</span>
+                <span class="count_span">1,101人报名</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="t_div">
+            <a href="">
+                <img src="https://cdn.tmooc.cn/bsfile//courseImg///5f791c0985cc4a67a5c4dca6627155b0.jpg" alt="">
+            </a>
+        </div>
+        <div class="b_div">
+            <a href="">【商业插画】三分钟解锁表情包</a>
+            <div>
+                <span class="free_span">免费</span>
+                <span class="count_span">1,101人报名</span>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="t_div">
+            <a href="">
+                <img src="https://cdn.tmooc.cn/bsfile//courseImg///5f791c0985cc4a67a5c4dca6627155b0.jpg" alt="">
+            </a>
+        </div>
+        <div class="b_div">
+            <a href="">【商业插画】三分钟解锁表情包</a>
+            <div>
+                <span class="free_span">免费</span>
+                <span class="count_span">1,101人报名</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
