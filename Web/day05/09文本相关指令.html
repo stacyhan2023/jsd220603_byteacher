@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <!--{{变量}}: 插值, 让此处的文本内容和变量进行绑定,不依赖于标签-->
+  {{msg}}
+  <p>{{msg}}</p>
+  <h1>{{msg}}</h1>
+  <!--v-text="变量",  让元素的文本内容和变量进行绑定-->
+  <h1 v-text="msg"></h1>
+  <!--v-html="变量", 让元素的html标签内容和变量进行绑定-->
+  <p v-html="msg"></p>
+
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+  let v = new Vue({
+    el:"body>div",
+    data:{
+      msg:"文本相关<b>文本相关</b>"
+    }
+  })
+</script>
+</body>
+</html>
