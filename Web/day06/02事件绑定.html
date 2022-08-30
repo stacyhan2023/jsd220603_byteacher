@@ -6,21 +6,25 @@
 </head>
 <body>
 <div>
+  <input type="text" v-model="info">
   <!--事件绑定 简写-->
   <input type="button" value="按钮1" @click="f()">
   <!--事件绑定-->
-  <input type="button" value="按钮2" v-on:click="f()">
+  <input type="button" value="按钮2" v-on:click="f1()">
 </div>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script>
    let v = new Vue({
      el:"body>div",
      data:{
-
+        info:""
      },
      methods:{
        f(){
-         alert("按钮点击了!");
+         alert(v.info);
+       },
+       f1(){
+         alert("按钮2点击了!");
        }
      }
    })
