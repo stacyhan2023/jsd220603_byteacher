@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+  <el-button @click="visible = true">Button</el-button>
+  <el-dialog :visible.sync="visible" title="Hello world">
+    <p>Try Element</p>
+  </el-dialog>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: function() {
+      return { visible: false }
+    }
+  })
+</script>
+</html>
