@@ -6,17 +6,26 @@
 </head>
 <body>
 <div>
-
+  <!--事件绑定 简写-->
+  <input type="button" value="按钮1" @click="f()">
+  <!--事件绑定-->
+  <input type="button" value="按钮2" v-on:click="f()">
 </div>
-
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script>
    let v = new Vue({
      el:"body>div",
      data:{
 
+     },
+     methods:{
+       f(){
+         alert("按钮点击了!");
+       }
      }
    })
+
 </script>
+
 </body>
 </html>
