@@ -19,7 +19,21 @@
              <td>{{i+1}}</td><td>{{p.name}}</td><td>{{p.age}}</td><td>{{p.type}}</td>
         </tr>
     </table>
-
+    <table border="1">
+        <caption>员工列表</caption>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>工作</th>
+            <th>工资</th>
+        </tr>
+        <tr v-for="(emp,i) in empArr">
+            <td>{{i+1}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.job}}</td>
+            <td>{{emp.salary}}</td>
+        </tr>
+    </table>
 
 </div>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
