@@ -10,19 +10,19 @@
     <caption>个人信息</caption>
     <tr>
       <td>照片:</td>
-      <td><img src="" width="100" alt=""></td>
+      <td><img :src="user.url" width="100" alt=""></td>
     </tr>
     <tr>
-      <td>名字:</td><td></td>
+      <td>名字:</td><td>{{user.name}}</td>
     </tr>
     <tr>
-      <td>年龄:</td><td></td>
+      <td>年龄:</td><td>{{user.age}}</td>
     </tr>
     <tr>
       <td>好友:</td>
       <td>
         <ul>
-          <li></li>
+          <li v-for="name in user.friend">{{name}}</li>
         </ul>
       </td>
     </tr>
@@ -34,12 +34,12 @@
    let v = new Vue({
      el:"body>div",
      data:{
-        user:{
-          url:"../b.jpg",
-          name:"传奇哥",
-          age:18,
-          friend:["蜘蛛精","白骨精","黑熊怪"]
-        }
+        user:{}
+     },
+     methods:{
+       f(){
+         v.user = {url:"../b.jpg", name:"传奇哥", age:18, friend:["蜘蛛精","白骨精","黑熊怪"]}
+       }
      }
    })
 </script>
