@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <!--v-model="变量" 双向绑定, 让控件的值和变量进行绑定
+    变量值改变控件的值跟着改变, 控件的值改变变量也会跟着变  互相影响所以称为双向绑定-->
+  <input type="text" v-model="info">
+  <h1>{{info}}</h1>
+    <hr>
+    <input type="text" v-model="user.username" placeholder="请输入用户名">
+    <input type="password" v-model="user.password" placeholder="请输入密码">
+</div>
+<script src="../day05/js/vue.min.js"></script>
+<script>
+    let v = new Vue({
+        el:"body>div",
+        data:{
+            info:"双向绑定测试",
+            user:{
+                username:"",
+                password:""
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
