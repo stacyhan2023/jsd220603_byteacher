@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <input type="text" placeholder="姓名">
+  <input type="text" placeholder="工资">
+  <input type="text" placeholder="工作">
+  <input type="button" value="添加">
+  <table border="1">
+    <caption>员工列表</caption>
+    <tr>
+      <th>编号</th><th>姓名</th><th>工资</th><th>工作</th>
+    </tr>
+    <tr v-for="(emp,i) in arr">
+      <td>{{i+1}}</td>
+      <td>{{emp.name}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.job}}</td>
+    </tr>
+  </table>
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+   let v = new Vue({
+     el:"body>div",
+     data:{
+        arr:[{name:"张三",salary:3000,job:"销售"},
+          {name:"李四",salary:4000,job:"人事"},
+          {name:"王五",salary:5000,job:"程序员"}]
+     }
+   })
+</script>
+</body>
+</html>
