@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  <table border="1">
+    <caption>个人信息</caption>
+    <tr>
+      <td>照片:</td>
+      <td><img src="" width="100" alt=""></td>
+    </tr>
+    <tr>
+      <td>名字:</td><td></td>
+    </tr>
+    <tr>
+      <td>年龄:</td><td></td>
+    </tr>
+    <tr>
+      <td>好友:</td>
+      <td>
+        <ul>
+          <li></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+  <input type="button" value="请求数据" @click="f()">
+</div>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+   let v = new Vue({
+     el:"body>div",
+     data:{
+        user:{
+          url:"../b.jpg",
+          name:"传奇哥",
+          age:18,
+          friend:["蜘蛛精","白骨精","黑熊怪"]
+        }
+     }
+   })
+</script>
+</body>
+</html>
