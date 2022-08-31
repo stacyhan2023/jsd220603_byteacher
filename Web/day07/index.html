@@ -9,6 +9,9 @@
             text-decoration: none;
             color: #6c6c6c;
         }
+        .el-table .el-table__cell{
+            padding: 0;/*去掉自带的上下间距*/
+        }
     </style>
 </head>
 <body>
@@ -65,21 +68,33 @@
                     </el-carousel>
                 </el-col>
                 <el-col span="6">
-                    <h3>
-                        <i style="font-weight: bold" class="el-icon-trophy">销量最高</i>
-                    </h3>
-                    <el-divider></el-divider>
-                    <el-table :data="topArr">
-                        <el-table-column label="排名" width="50" type="index"></el-table-column>
-                        <el-table-column label="商品标题" width="80" prop="title"></el-table-column>
-                        <el-table-column label="销量" width="80" prop="saleCount"></el-table-column>
-                    </el-table>
+                    <el-card>
+                        <h3>
+                            <i style="font-weight: bold" class="el-icon-trophy">销量最高</i>
+                        </h3>
+                        <el-divider></el-divider>
+                        <el-table :data="topArr">
+                            <el-table-column label="排名" width="50" type="index"></el-table-column>
+                            <el-table-column label="商品标题" width="80" prop="title"></el-table-column>
+                            <el-table-column label="销量" width="80" prop="saleCount"></el-table-column>
+                        </el-table>
+                    </el-card>
+
 
                 </el-col>
             </el-row>
 
         </el-main>
-        <el-footer>Footer</el-footer>
+        <el-footer>
+            <div style="height: 95px;background-image: url('imgs/wave.png')"></div>
+            <div style="background-color: #3f3f3f;
+            text-align: center;color: #b1b1b1;padding: 30px 0">
+                <p>Copyright © 北京达内金桥科技有限公司版权所有 京ICP备12003709号-3 京公网安备 11010802029572号
+                </p>
+                <p>达内在线WWW.TMOOC.CN 专注于IT职业技能培训</p>
+                <p>涵盖20余门课程体系，致力于打造权威的IT职业教育学习平台</p>
+            </div>
+        </el-footer>
     </el-container>
 </div>
 </body>
