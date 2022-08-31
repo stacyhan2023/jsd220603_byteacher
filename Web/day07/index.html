@@ -24,6 +24,20 @@
                 <a href="">校园招聘</a><el-divider direction="vertical"></el-divider>
                 <a href="">帮助</a>
             </div>
+            <!--导航菜单开始-->
+            <div>
+                <el-menu :default-active="activeIndex" class="el-menu-demo"
+                         background-color="#82c8ec"
+                         text-color="#fff"
+                         active-text-color="#fff"
+                         mode="horizontal" @select="handleSelect">
+                    <el-menu-item index="1">精彩活动</el-menu-item>
+                    <el-menu-item index="2">当季女装</el-menu-item>
+                    <el-menu-item index="3">品牌男装</el-menu-item>
+                    <el-menu-item index="4">环球美食</el-menu-item>
+                </el-menu>
+            </div>
+            <!--导航菜单结束-->
         </el-header>
         <el-main>Main</el-main>
         <el-footer>Footer</el-footer>
@@ -39,11 +53,13 @@
         el: '#app',
         data: function () {
             return {
-
+                activeIndex:"1"
             }
         },
         methods: {
-
+            handleSelect(key,keyPath){
+                console.log(key,keyPath);
+            }
         }
     })
 </script>
