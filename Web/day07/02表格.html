@@ -28,7 +28,26 @@
         </el-table>
     </template>
     <h1>员工列表</h1>
-
+    <template>
+        <el-table
+                :data="empArr"
+                style="width: 100%">
+            <el-table-column
+                    prop="name"
+                    label="名字"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="salary"
+                    label="工资"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="job"
+                    label="工作">
+            </el-table-column>
+        </el-table>
+    </template>
 </div>
 </body>
 <!-- import Vue before Element -->
