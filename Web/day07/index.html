@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+    <style>
+        header a{
+            text-decoration: none;
+            color: #6c6c6c;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <el-container>
+        <el-header height="150px">
+            <div style="width: 1200px;margin: 0 auto">
+                <img src="imgs/logo.png" style="width: 300px;vertical-align: middle" alt="">
+                <a href="">首页</a><el-divider direction="vertical"></el-divider>
+                <a href="">热点资讯</a><el-divider direction="vertical"></el-divider>
+                <a href="">商家入驻</a><el-divider direction="vertical"></el-divider>
+                <a href="">社会招聘</a><el-divider direction="vertical"></el-divider>
+                <a href="">校园招聘</a><el-divider direction="vertical"></el-divider>
+                <a href="">帮助</a>
+            </div>
+        </el-header>
+        <el-main>Main</el-main>
+        <el-footer>Footer</el-footer>
+    </el-container>
+</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+<!-- import JavaScript -->
+<script src="https://cdn.staticfile.org/element-ui/2.15.9/index.min.js"></script>
+<script>
+    let v = new Vue({
+        el: '#app',
+        data: function () {
+            return {
+
+            }
+        },
+        methods: {
+
+        }
+    })
+</script>
+</html>
