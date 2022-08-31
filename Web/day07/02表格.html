@@ -33,6 +33,11 @@
                 :data="empArr"
                 style="width: 100%">
             <el-table-column
+                    type="index"
+                    label="编号"
+                    width="180">
+            </el-table-column>
+            <el-table-column
                     prop="name"
                     label="名字"
                     width="180">
@@ -46,6 +51,24 @@
                     prop="job"
                     label="工作">
             </el-table-column>
+            <!--************************************************-->
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <!--scope对象中包含当前这行的相关内容
+                    (scope.$index这一行在数组中的下标,
+                    scope.row这一行对应数组中的对象 )-->
+                    <el-button
+                            size="mini"
+                            @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                    <el-button
+                            size="mini"
+                            type="danger"
+                            @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+            <!--************************************************-->
+
+
         </el-table>
     </template>
 </div>
@@ -82,7 +105,13 @@
             }
         },
         methods: {
-
+            handleEdit(i,emp){
+                v.$message(i+":"+emp.name);
+            },
+            handleDelete(i,emp){
+                //删除数组中的数据
+                v.empArr.splice(i,1);
+            }
         }
     })
 </script>
