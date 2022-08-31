@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <!-- import CSS -->
     <link rel="stylesheet" href="https://cdn.staticfile.org/element-ui/2.15.9/theme-chalk/index.css">
+    <style>
+        .c1{
+            border: 1px solid red;border-radius: 5px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
+    <!--el-row表示行-->
+    <el-row>
+        <!--el-col表示列  span设置占多少分栏-->
+        <el-col span="12"><div class="c1">aaa</div></el-col>
+        <el-col span="12"><div class="c1">bbb</div></el-col>
+    </el-row>
+    <el-row gutter="20">
+        <el-col span="8"><div class="c1"></div></el-col>
+        <el-col span="8"><div class="c1"></div></el-col>
+        <el-col span="8"><div class="c1"></div></el-col>
+    </el-row>
+    <div style="width: 1200px;margin: 0 auto">
+        <el-row>
+            <!--el-col表示列  span设置占多少分栏-->
+            <el-col span="12"><div class="c1">aaa</div></el-col>
+            <el-col span="12"><div class="c1">bbb</div></el-col>
+        </el-row>
+    </div>
+    <!--1. 四等份并居中-->
 
+    <!--2. 划分3部分比例为1:2:3  间隔30个像素  并且居中-->
 </div>
 </body>
 <!-- import Vue before Element -->
