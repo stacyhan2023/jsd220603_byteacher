@@ -16,7 +16,7 @@
     <el-container>
         <el-header height="150px">
             <div style="width: 1200px;margin: 0 auto">
-                <img src="imgs/logo.png" style="width: 300px;vertical-align: middle" alt="">
+                <img src="imgs/logo.png"  style="width: 300px;vertical-align: middle" alt="">
                 <a href="">首页</a><el-divider direction="vertical"></el-divider>
                 <a href="">热点资讯</a><el-divider direction="vertical"></el-divider>
                 <a href="">商家入驻</a><el-divider direction="vertical"></el-divider>
@@ -25,8 +25,10 @@
                 <a href="">帮助</a>
             </div>
             <!--导航菜单开始-->
-            <div>
-                <el-menu :default-active="activeIndex" class="el-menu-demo"
+            <div style="background-color: #82c8ec">
+
+                <el-menu style="width: 1200px;margin: 0 auto"
+                        :default-active="activeIndex" class="el-menu-demo"
                          background-color="#82c8ec"
                          text-color="#fff"
                          active-text-color="#fff"
@@ -35,6 +37,9 @@
                     <el-menu-item index="2">当季女装</el-menu-item>
                     <el-menu-item index="3">品牌男装</el-menu-item>
                     <el-menu-item index="4">环球美食</el-menu-item>
+                    <el-menu-item index="5">医药健康</el-menu-item>
+                    <el-menu-item index="6">美妆彩妆</el-menu-item>
+                    <el-menu-item index="7">母婴产品</el-menu-item>
                 </el-menu>
             </div>
             <!--导航菜单结束-->
