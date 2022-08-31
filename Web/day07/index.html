@@ -64,7 +64,18 @@
                         </el-carousel-item>
                     </el-carousel>
                 </el-col>
-                <el-col span="6"></el-col>
+                <el-col span="6">
+                    <h3>
+                        <i style="font-weight: bold" class="el-icon-trophy">销量最高</i>
+                    </h3>
+                    <el-divider></el-divider>
+                    <el-table :data="topArr">
+                        <el-table-column label="排名" width="50" type="index"></el-table-column>
+                        <el-table-column label="商品标题" width="80" prop="title"></el-table-column>
+                        <el-table-column label="销量" width="80" prop="saleCount"></el-table-column>
+                    </el-table>
+
+                </el-col>
             </el-row>
 
         </el-main>
@@ -81,7 +92,10 @@
         el: '#app',
         data: function () {
             return {
-                activeIndex:"1"
+                activeIndex:"1",
+                topArr:[{title:"小米电视",saleCount:685},{title:"李宁毛巾",saleCount:457},
+                    {title:"安踏拖鞋",saleCount:185},{title:"华为手机",saleCount:57},
+                    {title:"耐克篮球",saleCount:32},{title:"联想电脑",saleCount:18}]
             }
         },
         methods: {
