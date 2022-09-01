@@ -83,16 +83,16 @@
             </el-row>
             <!--商品列表开始-->
             <el-row gutter="20">
-                <el-col span="6">
+                <el-col span="6" v-for="p in productArr">
                     <el-card>
-                        <img src="imgs/a.jpg" width="100%" alt="">
+                        <img :src="p.url" width="100%" alt="">
                         <div>
                             <p style="font-size: 15px;height: 40px;margin-top: 0">
-                                森马牛仔裤女宽松慢跑裤运动风2022春季新款显瘦束脚长裤复古
+                                {{p.title}}
                             </p>
                             <p style="font-size: 12px;color: #666">
-                                ￥68 <s>99</s>
-                                <span style="float: right">销量:998</span>
+                                ￥{{p.price}} <s>{{p.oldPrice}}</s>
+                                <span style="float: right">销量:{{p.saleCount}}</span>
                             </p>
                         </div>
                     </el-card>
