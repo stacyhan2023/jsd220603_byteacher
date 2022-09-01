@@ -71,6 +71,27 @@
                     </el-table-column>
                 </el-table>
                 <!--分类表格结束-->
+                <!--轮播图表格开始-->
+                <el-table :data="bannerArr" style="width: 100%">
+                    <el-table-column type="index" label="编号" width="180">
+                    </el-table-column>
+                    <el-table-column  label="轮播图" width="180">
+                        <!--自定义内容必须写在template里面-->
+                        <template slot-scope="scope">
+                            <!--scope.row得到当前行对应的数组里面的对象-->
+                            <img :src="scope.row.url" width="100%" alt="">
+                        </template>
+                    </el-table-column>
+                    <el-table-column label="操作">
+                        <template slot-scope="scope">
+                            <el-button
+                                    size="mini"
+                                    type="danger"
+                                    @click="categoryDelete(scope.$index, scope.row)">删除</el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
+                <!--轮播图表格结束-->
 
             </el-main>
         </el-container>
@@ -87,7 +108,9 @@
         data: function () {
             return {
                 categoryArr:[{name:"品牌服装"},{name:"精品女装"},
-                    {name:"美食健康"},{name:"数码科技"},{name:"篮球鞋"}]
+                    {name:"美食健康"},{name:"数码科技"},{name:"篮球鞋"}],
+                bannerArr:[{url:"imgs/b1.jpg"},{url:"imgs/b2.jpg"},
+                    {url:"imgs/b3.jpg"}]
             }
         },
         methods: {
