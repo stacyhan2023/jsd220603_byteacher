@@ -8,9 +8,43 @@
 <body>
 <div id="app">
     <el-container>
-        <el-header>Header</el-header>
+        <el-header style="background-color: #0095d7">
+            <h1 style="color: white;font-size: 22px">
+                CoolShark商城后台管理系统
+                <span style="float:right;font-size: 15px">欢迎xxx回来!<a href="">退出登录</a></span>
+            </h1>
+        </el-header>
         <el-container>
-            <el-aside width="200px">Aside</el-aside>
+            <el-aside width="200px">
+                <!--导航菜单开始-->
+                    <el-menu>
+                        <!--添加子菜单-->
+                        <el-submenu>
+                            <!--添加子菜单标题-->
+                            <template slot="title">
+                                <i class="el-icon-s-flag"></i>
+                                <span>分类管理</span>
+                            </template>
+                            <!--添加菜单项-->
+                            <el-menu-item index="1-1">分类列表</el-menu-item>
+                            <el-menu-item index="1-2">添加分类</el-menu-item>
+                        </el-submenu>
+
+                        <el-submenu>
+                            <!--添加子菜单标题-->
+                            <template slot="title">
+                                <i class="el-icon-picture"></i>
+                                <span>轮播图管理</span>
+                            </template>
+                            <!--添加菜单项-->
+                            <el-menu-item index="2-1">轮播图列表</el-menu-item>
+                            <el-menu-item index="2-2">添加轮播图</el-menu-item>
+                        </el-submenu>
+
+
+                    </el-menu>
+                <!--导航菜单结束-->
+            </el-aside>
             <el-main>Main</el-main>
         </el-container>
     </el-container>
