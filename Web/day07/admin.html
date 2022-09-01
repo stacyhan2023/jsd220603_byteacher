@@ -40,7 +40,16 @@
                             <el-menu-item index="2-1">轮播图列表</el-menu-item>
                             <el-menu-item index="2-2">添加轮播图</el-menu-item>
                         </el-submenu>
-
+                        <el-submenu>
+                            <!--添加子菜单标题-->
+                            <template slot="title">
+                                <i class="el-icon-shopping-cart-2"></i>
+                                <span>商品管理</span>
+                            </template>
+                            <!--添加菜单项-->
+                            <el-menu-item index="3-1">商品列表</el-menu-item>
+                            <el-menu-item index="3-2">添加商品</el-menu-item>
+                        </el-submenu>
 
                     </el-menu>
                 <!--导航菜单结束-->
