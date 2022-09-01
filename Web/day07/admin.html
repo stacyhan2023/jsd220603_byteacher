@@ -17,7 +17,7 @@
         <el-container>
             <el-aside width="200px" style="overflow: hidden">
                 <!--导航菜单开始-->
-                    <el-menu>
+                    <el-menu @select="handleSelect">
                         <!--添加子菜单-->
                         <el-submenu index="1">
                             <!--添加子菜单标题-->
@@ -56,7 +56,7 @@
             </el-aside>
             <el-main>
                 <!--分类表格开始-->
-                <el-table :data="categoryArr" style="width: 100%">
+                <el-table v-if="currentIndex=='1-1'" :data="categoryArr" style="width: 100%">
                     <el-table-column type="index" label="编号" width="180">
                     </el-table-column>
                     <el-table-column prop="name" label="分类名称" width="180">
@@ -72,7 +72,7 @@
                 </el-table>
                 <!--分类表格结束-->
                 <!--轮播图表格开始-->
-                <el-table :data="bannerArr" style="width: 100%">
+                <el-table v-if="currentIndex=='2-1'" :data="bannerArr" style="width: 100%">
                     <el-table-column type="index" label="编号" width="180">
                     </el-table-column>
                     <el-table-column  label="轮播图" width="180">
@@ -93,7 +93,7 @@
                 </el-table>
                 <!--轮播图表格结束-->
                 <!--商品表格开始-->
-                <el-table :data="productArr" style="width: 100%">
+                <el-table v-if="currentIndex=='3-1'" :data="productArr" style="width: 100%">
                     <el-table-column type="index" label="编号" width="50">
                     </el-table-column>
                     <el-table-column prop="title" label="商品标题" width="200"></el-table-column>
@@ -132,6 +132,7 @@
         el: '#app',
         data: function () {
             return {
+                currentIndex:"1-1",
                 categoryArr:[{name:"品牌服装"},{name:"精品女装"},
                     {name:"美食健康"},{name:"数码科技"},{name:"篮球鞋"}],
                 bannerArr:[{url:"imgs/b1.jpg"},{url:"imgs/b2.jpg"},
@@ -152,6 +153,19 @@
         },
         methods: {
             categoryDelete(i,category){
+
+            },
+            handleSelect(key,keyPath){
+                console.log(key);
+                if (key=='1-2'){
+                    v.$message("添加分类");
+                }else if (key=='2-2'){
+                    v.$message("添加轮播图");
+                }else if (key=='3-2'){
+                    v.$message("添加商品");
+                }else{
+                    v.currentIndex = key;
+                }
 
             }
         }
