@@ -287,3 +287,23 @@ select name 姓名 from emp;
    - 查询2号部门的最低工资
 
      select min(sal) from emp where dept_id=2;
+
+4. 求和sum(字段名)
+
+   - 查询3号部门的工资总和
+
+     select sum(sal) from emp where dept_id=3;
+
+5. 计数count(*)
+
+   - 查询1号部门的人数
+
+     select count(*) from emp where dept_id=1;
+
+### 聚合函数练习题:
+
+1. 查询销售的平均工资
+2. 查询程序员的最高工资
+3. 查询名字中包含精的人数
+4. 查询和销售相关的工作,工资总和是多少
+5. 查询2号部门的最高工资和 最低工资 起别名
