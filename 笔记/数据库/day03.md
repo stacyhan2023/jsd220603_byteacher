@@ -234,3 +234,10 @@ from emp e right join dept d on e.dept_id=d.id;
 - Java DataBase connectivity: Java数据库连接
 - 学习JDBC主要学习的是如何通过Java代码执行SQL语句
 - JDBC是Sun公司提供的一套专门用于Java语言和数据库软件进行连接的API(Application Programma Interface应用程序编程接口),Sun公司为了避免Java程序员每一种数据库软件都学习一套全新的方法, Sun公司通过JDBC接口定义好了方法名,让各个数据库的厂商根据此方法名写各自的实现类(驱动), 这样的话Java程序员只需要学会JDBC接口中方法的调用即可访问任何数据库软件, 甚至换数据库时代码都不需要改变. 这样的话大大提高了开发效率. 
+
+<img src="day03.assets/image-20220905142121356.png" alt="image-20220905142121356" style="zoom:67%;" />
+
+### 如何使用JDBC连接数据库软件
+
+1. 创建Maven工程 jdbc01
+2. 在pom.xml文件中添加引入MySQL驱动(jar包) 的依赖, 从苍老师文档服务器中找到MySQL驱动的依赖.
