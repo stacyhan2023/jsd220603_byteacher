@@ -169,6 +169,45 @@ from emp e join dept d on e.dept_id=d.id;
 
 2. 查询工资高于2000的员工姓名,工资和部门名称
 
-   
+   ```
+   select e.name,sal,d.name
+   from emp e join dept d on e.dept_id=d.id
+   where sal>2000;
+   ```
 
 3. 查询孙悟空的部门地址   
+
+```
+select loc
+from emp e join dept d on e.dept_id=d.id
+where e.name='孙悟空';
+```
+
+### 外连接
+
+- 内连接和等值连接作用一样, 查询到的是两个表之间的交集数据
+- 外连接查询的是一张表的全部和另外一张表的交集  
+- 格式: select 字段信息 from A left/right join B  on A.x=B.x where 其它条件;
+
+1. 查询所有员工姓名和对应的部门名
+
+​	  insert into emp(name,sal) values('灭霸',5);
+
+```
+select e.name,d.name
+from emp e left join dept d on e.dept_id=d.id;
+```
+
+2. 查询所有部门的工作地点,和对应的员工姓名,工作
+
+```
+select loc,e.name,job
+from emp e right join dept d on e.dept_id=d.id;
+```
+
+### 综合练习题
+
+1. 查询工资高于程序员平均工资的员工信息
+2. 查询工作人数为1的 工作名称
+3. 查询1号和2号部门中工资大于2000的员工姓名和部门名
+4. 查询所有员工的名称,工资和对应的部门信息
