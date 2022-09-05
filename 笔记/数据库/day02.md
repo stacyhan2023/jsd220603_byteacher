@@ -322,7 +322,7 @@ select name 姓名 from emp;
 
    select max(sal) 最高工资,min(sal) 最低工资 from emp where dept_id=2;
 
-### 分组查询 
+### 分组查询 group by
 
 - 可以将某个字段相同值的数据划分为一组, 然后以组为单位进行统计查询
   1. 查询每个部门的平均工资
