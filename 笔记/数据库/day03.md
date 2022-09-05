@@ -304,4 +304,40 @@ System.out.println("执行完成!");
   <img src="day03.assets/image-20220905165415313.png" alt="image-20220905165415313" style="zoom: 50%;" />
 
 - 如何使用数据库连接池?
+
   - 在pom.xml里面添加数据库连接池的依赖 ,从苍老师文档服务器中找到依赖
+
+  - 相关代码:
+
+  - 
+
+  - ```java
+    //创建数据库连接池
+    DruidDataSource dds = new DruidDataSource();
+    //设置连接数据库的信息
+    dds.setUrl("jdbc:mysql://localhost:3306/empdb?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false");
+    dds.setUsername("root");
+    dds.setPassword("root");
+    //设置初始连接数量
+    dds.setInitialSize(3);
+    //设置最大连接数量
+    dds.setMaxActive(5);
+    //获取连接对象  异常抛出
+    Connection conn = dds.getConnection();
+    System.out.println("连接:"+conn);
+    ```
+
+
+
+### 晚课练习:
+
+1. 创建maven工程jdbc03   
+2. 创建cn.tedu包 , 把jdbc01工程中的DBUtils复制到包里面
+3. 创建Demo01 在main里面创建一个car表 有id,title,type类型,price字段
+4. 创建Demo02在main里面往英雄表中添加 3辆车的信息到表中
+5. 创建Demo03在main里面删除最后一条
+6. 创建Demo04在main里面修改其中一辆车的信息为 奔驰S500 类型为轿车   价格9.9
+7. 创建Demo05 在里面查询car表 并在控制台输出所有信息
+
+
+
