@@ -279,4 +279,29 @@ System.out.println("执行完成!");
 
 - execute("sql");  可以执行任意SQL语句, 推荐执行数据库相关和表相关的SQL     
 - int row = executeUpdate("sql");  此方法执行增删改相关的SQL语句.   row代表生效的行数
-- ResultSet rs = executeQuery("sql");  此方法专门用于执行查询相关的SQL语句,  ResultSet是结果集对象, 里面装着查询回来的所有数据
+- ResultSet rs = executeQuery("sql");  此方法专门用于执行查询相关的SQL语句,  ResultSet是结果集对象, 里面装着查询回来的所有数据  
+
+
+
+### 综合练习:
+
+1. 创建maven工程jdbc02   
+2. 创建cn.tedu包 , 把jdbc01工程中的DBUtils复制到包里面
+3. 创建Demo01 在main里面创建一个hero表 有id,name,age字段
+4. 创建Demo02在main里面往英雄表中添加 孙悟空,500岁    猪八戒,300岁
+5. 创建Demo03在main里面删除猪八戒
+6. 创建Demo04在main里面修改孙悟空为齐天大圣
+7. 创建Demo05 在里面查询hero表 并在控制台输出name和age
+
+
+
+### DBCP
+
+- DataBaseConnectionPool: 数据库连接池 
+
+- 作用: 是将连接重用,避免了频繁开关连接导致的资源浪费,从而提高执行效率
+
+  <img src="day03.assets/image-20220905165415313.png" alt="image-20220905165415313" style="zoom: 50%;" />
+
+- 如何使用数据库连接池?
+  - 在pom.xml里面添加数据库连接池的依赖 ,从苍老师文档服务器中找到依赖
