@@ -136,3 +136,39 @@ select e.name,d.name from emp e,dept d
 where e.dept_id=d.id;
 ```
 
+2. 查询工资高于2000的员工姓名,工资和部门名称
+
+   ```
+   select e.name,sal,d.name
+   from emp e,dept d 
+   where e.dept_id=d.id and sal>2000;
+   ```
+
+3. 查询孙悟空的部门地址   
+
+   ```
+   select loc
+   from emp e,dept d
+   where e.dept_id=d.id and e.name='孙悟空';
+   ```
+
+### 内连接
+
+- 内连接和等值连接作用一样, 查询到的是两个表之间的交集数据(有关系的数据)
+
+​    insert into emp(name,sal) values('灭霸',5);
+
+- 内连接格式:  select 字段信息 from A join B on A.x=B.x(关联关系) where 其它条件;
+
+1. 查询每个员工的姓名和对应的部门名 
+
+```
+select e.name,d.name
+from emp e join dept d on e.dept_id=d.id;
+```
+
+2. 查询工资高于2000的员工姓名,工资和部门名称
+
+   
+
+3. 查询孙悟空的部门地址   
