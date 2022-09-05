@@ -240,4 +240,43 @@ from emp e right join dept d on e.dept_id=d.id;
 ### 如何使用JDBC连接数据库软件
 
 1. 创建Maven工程 jdbc01
+
 2. 在pom.xml文件中添加引入MySQL驱动(jar包) 的依赖, 从苍老师文档服务器中找到MySQL驱动的依赖.
+
+   ![image-20220905143405363](day03.assets/image-20220905143405363.png)
+
+   ```xml
+   <dependencies>
+       <!-- 连接MySQL数据库的依赖 -->
+       <dependency>
+           <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+           <version>8.0.15</version>
+       </dependency>
+   </dependencies>
+   ```
+
+   3. 创建cn.tedu.Demo01.java 添加以下代码:
+
+```java
+//1. 获取数据库连接  异常抛出
+Connection conn = DriverManager.getConnection(
+        "jdbc:mysql://localhost:3306/empdb?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false",
+        "root","root");
+System.out.println("连接对象:"+conn);
+//2. 创建执行SQL语句的对象
+Statement s = conn.createStatement();
+//3. 执行SQL语句 execute=执行
+s.execute("create table jdbct1(name varchar(20),age int)");
+//4. 关闭资源
+conn.close();
+System.out.println("执行完成!");
+```
+
+
+
+### Statement执行SQL语句的对象
+
+- execute("sql");  可以执行任意SQL语句, 推荐执行数据库相关和表相关的SQL     
+- int row = executeUpdate("sql");  此方法执行增删改相关的SQL语句.   row代表生效的行数
+- ResultSet rs = executeQuery("sql");  此方法专门用于执行查询相关的SQL语句,  ResultSet是结果集对象, 里面装着查询回来的所有数据
