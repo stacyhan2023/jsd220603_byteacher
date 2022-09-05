@@ -208,6 +208,29 @@ from emp e right join dept d on e.dept_id=d.id;
 ### 综合练习题
 
 1. 查询工资高于程序员平均工资的员工信息
+
+   select * from emp where sal>(select avg(sal) from emp where job='程序员');
+
 2. 查询工作人数为1的 工作名称
+
+   select job from emp where job is not null group by job having count(*)=1;
+
 3. 查询1号和2号部门中工资大于2000的员工姓名和部门名
+
+   select e.name,d.name
+
+   from emp e join dept d on e.dept_id=d.id
+
+   where dept_id in(1,2) and sal>2000;
+
 4. 查询所有员工的名称,工资和对应的部门信息
+
+   select e.name,sal,d.*
+
+   from emp e left join dept d on e.dept_id=d.id;
+
+### JDBC
+
+- Java DataBase connectivity: Java数据库连接
+- 学习JDBC主要学习的是如何通过Java代码执行SQL语句
+- JDBC是Sun公司提供的一套专门用于Java语言和数据库软件进行连接的API(Application Programma Interface应用程序编程接口),Sun公司为了避免Java程序员每一种数据库软件都学习一套全新的方法, Sun公司通过JDBC接口定义好了方法名,让各个数据库的厂商根据此方法名写各自的实现类(驱动), 这样的话Java程序员只需要学会JDBC接口中方法的调用即可访问任何数据库软件, 甚至换数据库时代码都不需要改变. 这样的话大大提高了开发效率. 
