@@ -3,6 +3,7 @@ package cn.tedu;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Demo01 {
     public static void main(String[] args) throws SQLException {
@@ -12,7 +13,11 @@ public class Demo01 {
                 "root","root");
         System.out.println("连接对象:"+conn);
         //2. 创建执行SQL语句的对象
-        //3. 执行SQL语句
+        Statement s = conn.createStatement();
+        //3. 执行SQL语句 execute=执行
+        s.execute("create table jdbct1(name varchar(20),age int)");
         //4. 关闭资源
+        conn.close();
+        System.out.println("执行完成!");
     }
 }
