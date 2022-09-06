@@ -15,10 +15,10 @@ public class Demo07 {
 //            Statement s = conn.createStatement();
 //            ResultSet rs = s.executeQuery("select count(*) from user where username='"
 //                    +username+"' and password='"+password+"'");
-            //通过PreparedStatement对象解决SQL注入的问题
+            //通过PreparedStatement对象解决SQL注入的问题   Admin    admin
             String sql = "select count(*) from user where username=? and password=?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            //把?替换成用户名和密码
+            //把?替换成用户名和密码  1和2 代表?的位置
             ps.setString(1,username);
             ps.setString(2,password);
             //执行SQL语句
