@@ -34,7 +34,6 @@ create table user(id int primary key auto_increment,username varchar(50),
                 System.out.println("用户名已存在");
                 return;
             }
-
             String sql = "insert into user values(null,'"
                     +username+"','"+password+"','"+nick+"')";
             s.executeUpdate(sql);
