@@ -25,9 +25,13 @@ public class Demo09 {
                 return;
             }
             //往数据库中添加数据
-
-
-
+           String insert_sql = "insert into user values(null,?,?,?)";
+            ps = conn.prepareStatement(insert_sql);
+            ps.setString(1,username);
+            ps.setString(2,password);
+            ps.setString(3,nick);
+            ps.executeUpdate();
+            System.out.println("注册成功!");
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
