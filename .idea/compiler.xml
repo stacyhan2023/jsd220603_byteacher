@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="boot01" />
         <module name="jdbc01" />
         <module name="jdbc02" />
         <module name="s1" />
@@ -14,6 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="boot01" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>
