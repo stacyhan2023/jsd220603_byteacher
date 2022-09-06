@@ -9,6 +9,7 @@
         <module name="boot01" />
         <module name="jdbc01" />
         <module name="jdbc02" />
+        <module name="boot01-1" />
         <module name="s1" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="boot01" options="-parameters" />
+      <module name="boot01-1" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>

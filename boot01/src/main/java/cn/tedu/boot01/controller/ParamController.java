@@ -15,7 +15,6 @@ public class ParamController {
         String info = request.getParameter("info");
         return "接收到参数:"+info;
     }
-
     @RequestMapping("/p2")
     @ResponseBody
     public String p2(String name,int age){
@@ -24,9 +23,6 @@ public class ParamController {
     @RequestMapping("/p3")
     @ResponseBody
     public String p3(Emp emp){
-
         return emp.toString();
     }
-
-
 }
