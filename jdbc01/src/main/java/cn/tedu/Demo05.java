@@ -20,6 +20,5 @@ public class Demo05 {
         //获取连接对象  异常抛出
         Connection conn = dds.getConnection();
         System.out.println("连接:"+conn);
-
     }
 }
