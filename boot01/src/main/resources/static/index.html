@@ -6,5 +6,15 @@
 </head>
 <body>
 <h1>工程首页</h1>
+<!--相对路径: 相对于当前页面所处位置
+localhost:8080/index.html
+localhost:8080/abc/index.html
+localhost:8080/abc/hello
+-->
+<a href="hello">相对路径</a>
+<!--绝对路径:  /代表的是当前工程的根路径   http://localhost:8080/-->
+<a href="/hello">绝对路径1</a>
+<!--绝对路径,访问站外资源时使用下面这种方式-->
+<a href="http://localhost:8080/hello">绝对路径2</a>
 </body>
 </html>
