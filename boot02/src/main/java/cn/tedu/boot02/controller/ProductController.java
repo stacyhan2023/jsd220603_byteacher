@@ -50,16 +50,23 @@ public class ProductController {
         }
         String html = "<table border='1'>";
         html+="<caption>商品列表</caption>";
-        html+="<tr><th>id</th><th>商品标题</th><th>价格</th><th>库存</th></tr>";
+        html+="<tr><th>id</th><th>商品标题</th><th>价格</th><th>库存</th><th>操作</th></tr>";
         for (Product p:list) {
             html+="<tr>";
             html+="<td>"+p.getId()+"</td>";
             html+="<td>"+p.getTitle()+"</td>";
             html+="<td>"+p.getPrice()+"</td>";
             html+="<td>"+p.getNum()+"</td>";
+            html+="<td><a href='/delete?id="+p.getId()+"'>删除</a></td>";
             html+="</tr>";
         }
         html+="</table>";
         return html;
+    }
+    @RequestMapping("/delete")
+    public String delete(int id){
+        System.out.println("id = " + id);
+
+        return "删除完成!<a href='/select'>返回列表页面</a>";
     }
 }
