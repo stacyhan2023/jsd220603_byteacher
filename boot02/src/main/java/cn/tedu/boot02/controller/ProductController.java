@@ -48,7 +48,18 @@ public class ProductController {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-        return list.toString();
+        String html = "<table border='1'>";
+        html+="<caption>商品列表</caption>";
+        html+="<tr><th>id</th><th>商品标题</th><th>价格</th><th>库存</th></tr>";
+        for (Product p:list) {
+            html+="<tr>";
+            html+="<td>"+p.getId()+"</td>";
+            html+="<td>"+p.getTitle()+"</td>";
+            html+="<td>"+p.getPrice()+"</td>";
+            html+="<td>"+p.getNum()+"</td>";
+            html+="</tr>";
+        }
+        html+="</table>";
+        return html;
     }
 }
