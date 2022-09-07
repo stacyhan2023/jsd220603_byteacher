@@ -28,8 +28,13 @@ public class UserController {
             if (rs.next()){
                 return "用户名已存在!";
             }
-
-
+            String insert_sql = "insert into user values(null,?,?,?)";
+            ps = conn.prepareStatement(insert_sql);
+            ps.setString(1,user.getUsername());
+            ps.setString(2,user.getPassword());
+            ps.setString(3,user.getNick());
+            //执行插入SQL
+            ps.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
