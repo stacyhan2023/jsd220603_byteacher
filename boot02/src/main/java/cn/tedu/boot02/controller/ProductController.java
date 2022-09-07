@@ -66,7 +66,14 @@ public class ProductController {
     @RequestMapping("/delete")
     public String delete(int id){
         System.out.println("id = " + id);
-
+        try (Connection conn = DBUtils.getConn()){
+            String sql = "delete from product where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,id);
+            ps.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return "删除完成!<a href='/select'>返回列表页面</a>";
     }
 }
