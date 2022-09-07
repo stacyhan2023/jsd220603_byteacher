@@ -38,7 +38,29 @@ public class UserController {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
         return "注册成功!";
     }
+    @RequestMapping("/login")
+    @ResponseBody
+    public String login(User user){
+        System.out.println("user = " + user);
+        try (Connection conn = DBUtils.getConn()){
+            String sql = "select password from user where username=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,user.getUsername());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){//判断是否查询到
+                //判断用户输入的密码和数据库中查询到的密码是否一致
+                if (user.getPassword().equals(rs.getString(1))){
+                    return "登录成功!";
+                }
+                return "密码错误!";
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return "用户名不存在!";
+    }
+
+
 }
