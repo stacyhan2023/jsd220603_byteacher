@@ -5,17 +5,17 @@ import cn.tedu.boot02.utils.DBUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-@Controller
+//使用RestController 相当于每个方法上面都自动添加了一个@ResponseBody注解
+@RestController
 public class UserController {
 
     @RequestMapping("/reg")
-    @ResponseBody
     public String reg(User user){
         System.out.println("user = " + user);
         //获取连接
@@ -41,7 +41,6 @@ public class UserController {
         return "注册成功!";
     }
     @RequestMapping("/login")
-    @ResponseBody
     public String login(User user){
         System.out.println("user = " + user);
         try (Connection conn = DBUtils.getConn()){
