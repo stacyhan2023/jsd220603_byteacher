@@ -5,7 +5,17 @@ public class Product {
     private String title;
     private Double price;
     private Integer num;
-    // 包装类型有null值 比基本数据类型多了一个未赋值的状态
+
+    public Product() {
+    }
+
+    public Product(Integer id, String title, Double price, Integer num) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.num = num;
+    }
+// 包装类型有null值 比基本数据类型多了一个未赋值的状态
     /*
     use empdb;
     create table product(id int primary key auto_increment,
