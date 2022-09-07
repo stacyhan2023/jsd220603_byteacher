@@ -10,3 +10,23 @@
 8. **修改功能**:在首页添加修改超链接, 请求地址为/update.html页面
 9. 创建update.html页面,页面中提供form表单获取输入的修改信息, 提交地址为/update
 10. 在ProductController中添加udpate方法 处理/update请求, 方法的参数列表处声明Product对象接收传递过来的参数,控制台输出 测试, 如果测试没问题 通过JDBC代码执行SQL语句把数据库里面的数据修改掉.最后给客户端响应"修改完成 返回首页"
+
+
+
+### MyBatis框架
+
+- 此框架是目前最流行的数据持久层框架, 框架可以帮助我们生成JDBC代码, 从而提高开发效率 .使用此框架程序员只需要通过注解或xml配置文件写好需要执行的SQL语句接口, Mybatis框架会自动生成对应的JDBC代码  
+
+- 如何使用Mybatis框架
+
+  - 创建boot03工程, 打钩3个
+
+    - Web->Spring Web
+    - SQL-> Mybatis Framework
+    - SQL-> MySQL Driver 
+
+  - 创建完工程后需要在application.properties 配置文件中添加连接数据库的信息
+  
+    ![image-20220907164024704](day02.assets/image-20220907164024704.png)
+
+​			

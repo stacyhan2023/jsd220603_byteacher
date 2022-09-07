@@ -11,6 +11,7 @@
         <module name="jdbc02" />
         <module name="boot01-1" />
         <module name="s1" />
+        <module name="boot03" />
         <module name="boot02" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="boot01" options="-parameters" />
       <module name="boot01-1" options="-parameters" />
       <module name="boot02" options="-parameters" />
+      <module name="boot03" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>
