@@ -76,4 +76,20 @@ public class ProductController {
         }
         return "删除完成!<a href='/select'>返回列表页面</a>";
     }
+    @RequestMapping("/update")
+    public String update(Product product){
+        System.out.println("product = " + product);
+        try (Connection conn = DBUtils.getConn()){
+            String sql = "update product set title=?,price=?,num=? where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,product.getTitle());
+            ps.setDouble(2,product.getPrice());
+            ps.setInt(3,product.getNum());
+            ps.setInt(4,product.getId());
+            ps.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return "修改完成!<a href='/select'>返回列表页面</a>";
+    }
 }
