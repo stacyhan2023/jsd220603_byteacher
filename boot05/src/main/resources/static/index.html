@@ -7,18 +7,25 @@
 <body>
 <h1>异步请求测试</h1>
 <div>
+    <input type="text" v-model="info">
   <input type="button" value="异步Get请求" @click="f1()">
 </div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script>
    let v = new Vue({
      el:"body>div",
      data:{
-
+        info:""
      },
      methods:{
        f1(){
-         alert("按钮点击了!");
+         //发出异步的get请求   response代表响应,里面装着服务器响应的数据
+         axios.get("/helloAxios?info="+v.info).then(function (response) {
+           //服务器成功响应后会执行此处代码
+           //response.data 代表服务器响应的数据
+           alert(response.data);
+         })
        }
      }
    })
