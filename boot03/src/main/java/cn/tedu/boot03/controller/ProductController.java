@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
     //自动装配注解, 此注解是Spring框架中提供的注解,添加此注解后Spring框架和MyBatis框架
@@ -19,5 +21,12 @@ public class ProductController {
         System.out.println("product = " + product);
         mapper.insert(product);
         return "添加完成!<a href='/'>返回首页</a>";
+    }
+
+    @RequestMapping("/select")
+    public String select(){
+        List<Product> list = mapper.select();
+
+        return list.toString();
     }
 }
