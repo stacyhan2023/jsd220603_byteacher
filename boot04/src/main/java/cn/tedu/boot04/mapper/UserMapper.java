@@ -8,8 +8,8 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    //通过User对象接收查询回来的id  如果查不到 方法返回的是个null
-    @Select("select id from user where username=#{username}")
+    //通过User对象接收查询回来的password  如果查不到 方法返回的是个null
+    @Select("select password from user where username=#{username}")
     User selectByUsername(String username);
 
     @Insert("insert into user values(null,#{username},#{password},#{nick})")
