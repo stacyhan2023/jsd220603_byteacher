@@ -25,6 +25,7 @@ public class UserController {
         return "注册成功!";
     }
 
+
     @RequestMapping("/login")
     public String login(User user){
         System.out.println("user = " + user);
