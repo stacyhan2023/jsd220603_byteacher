@@ -51,5 +51,11 @@ public class ProductController {
         return "删除完成!<a href='/select'>返回列表页面</a>";
     }
 
+    @RequestMapping("/update")
+    public String update(Product product){
+        System.out.println("product = " + product);
+        mapper.update(product);
+        return "修改完成!<a href='/select'>返回列表页面</a>";
+    }
 
 }
