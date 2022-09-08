@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="boot01" />
         <module name="jdbc01" />
+        <module name="boot05" />
         <module name="jdbc02" />
         <module name="boot01-1" />
         <module name="boot04" />
@@ -24,6 +25,7 @@
       <module name="boot02" options="-parameters" />
       <module name="boot03" options="-parameters" />
       <module name="boot04" options="-parameters" />
+      <module name="boot05" options="-parameters" />
       <module name="s1" options="-parameters" />
     </option>
   </component>
