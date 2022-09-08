@@ -43,4 +43,13 @@ public class ProductController {
         html+="</table>";
         return html;
     }
+
+    @RequestMapping("/delete")
+    public String delete(int id){
+        System.out.println("id = " + id);
+        mapper.deleteById(id);
+        return "删除完成!<a href='/select'>返回列表页面</a>";
+    }
+
+
 }
