@@ -8,7 +8,8 @@
 <div>
   <h1>注册页面</h1>
   <!--blur代表失去焦点事件 -->
-  <input type="text" v-model="user.username" placeholder="请输入用户名" @blur="f()">{{info}}<br>
+  <input type="text" v-model="user.username" placeholder="请输入用户名"
+         @blur="f()">{{info}}<br>
   <input type="text" v-model="user.password" placeholder="请输入密码"><br>
   <input type="text" v-model="user.nick" placeholder="请输入昵称"><br>
   <input type="button" value="注册" @click="reg()">
@@ -28,7 +29,15 @@
      },
      methods:{
        reg(){
-
+            axios.post("/reg",v.user).then(function (response) {
+                if (response.data==1){
+                    alert("注册成功!");
+                    //修改浏览器的请求地址
+                    location.href="/";//显示到首页
+                }else{
+                    alert("用户名已存在!");
+                }
+            })
        },
        f(){
          console.log("编辑完成!");
