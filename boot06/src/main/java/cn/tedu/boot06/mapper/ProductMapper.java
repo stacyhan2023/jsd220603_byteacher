@@ -19,5 +19,6 @@ public interface ProductMapper {
     @Delete("delete from product where id=#{id}")
     void deleteById(int id);
 
-
+    @Select("select * from product where id=#{id}")
+    Product selectById(int id);
 }

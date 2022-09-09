@@ -31,5 +31,12 @@ public class ProductController {
         System.out.println("id = " + id);
         mapper.deleteById(id);
     }
+
+    @RequestMapping("/selectById")
+    public Product selectById(int id){
+        System.out.println("id = " + id);
+
+        return mapper.selectById(id);
+    }
 }
 
