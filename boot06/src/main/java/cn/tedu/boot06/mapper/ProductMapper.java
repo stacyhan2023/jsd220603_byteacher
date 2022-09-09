@@ -1,10 +1,7 @@
 package cn.tedu.boot06.mapper;
 
 import cn.tedu.boot06.entity.Product;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,4 +18,7 @@ public interface ProductMapper {
 
     @Select("select * from product where id=#{id}")
     Product selectById(int id);
+
+    @Update("update product set title=#{title},price=#{price},num=#{num} where id=#{id}")
+    void update(Product product);
 }

@@ -7,11 +7,11 @@
 <body>
 <div>
   <h1>修改商品页面</h1>
-  <input type="text" v-model="p.id" placeholder="id">
+  <input type="text" v-model="p.id" placeholder="id" readonly>
   <input type="text" v-model="p.title" placeholder="标题">
   <input type="text" v-model="p.price" placeholder="价格">
   <input type="text" v-model="p.num" placeholder="库存">
-  <input type="button" value="修改">
+  <input type="button" value="修改" @click="update()">
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
@@ -27,6 +27,15 @@
                //把通过id查询到的商品对象 赋值给Vue里面的变量,页面会自动发生改变
                 v.p = response.data;
            })
+       },
+       methods:{
+           update(){
+               //发出修改请求
+               axios.post("/update",v.p).then(function (response) {
+                   alert("修改完成!");
+                   location.href="/list.html";//回到列表页面
+               })
+           }
        }
    })
 </script>

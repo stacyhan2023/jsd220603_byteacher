@@ -38,5 +38,9 @@ public class ProductController {
 
         return mapper.selectById(id);
     }
+    @RequestMapping("/update")
+    public void update(@RequestBody Product product){
+        mapper.update(product);
+    }
 }
 
