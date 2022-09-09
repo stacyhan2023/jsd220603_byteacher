@@ -29,7 +29,7 @@ public class ProductController {
     @RequestMapping("/delete")
     public void delete(int id){
         System.out.println("id = " + id);
-
+        mapper.deleteById(id);
     }
 }
 

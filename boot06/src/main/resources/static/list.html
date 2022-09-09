@@ -15,7 +15,13 @@
       <td>{{p.price}}</td>
       <td>{{p.num}}</td>
       <!--javascript:void(0) 废掉超链接的跳转功能-->
-      <td><a href="javascript:void(0)" @click="del(p.id)">删除</a></td>
+      <td>
+        <!--属性里面出现变量 必须使用属性绑定,也就是在属性前面加:
+        加完:后 属性的值就变成JavaScript代码了
+        -->
+        <a :href="'/update.html?id='+p.id">修改</a>
+        <a href="javascript:void(0)" @click="del(p.id)">删除</a>
+      </td>
     </tr>
   </table>
 

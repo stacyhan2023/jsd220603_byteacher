@@ -1,6 +1,7 @@
 package cn.tedu.boot06.mapper;
 
 import cn.tedu.boot06.entity.Product;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -14,4 +15,9 @@ public interface ProductMapper {
 
     @Select("select * from product")
     List<Product> select();
+
+    @Delete("delete from product where id=#{id}")
+    void deleteById(int id);
+
+
 }
