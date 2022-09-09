@@ -30,7 +30,6 @@ public class UserController {
             return 2;//代表用户名已存在
         }
         mapper.insert(user);
-
         return 1;
     }
     @RequestMapping("/login")
