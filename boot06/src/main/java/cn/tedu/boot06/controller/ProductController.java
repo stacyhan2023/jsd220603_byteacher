@@ -23,7 +23,6 @@ public class ProductController {
 
     @RequestMapping("/select")
     public List<Product> select(){
-
         //调用mapper中的查询方法 把查询到的list集合直接响应给客户端
         return mapper.select();
     }
