@@ -33,4 +33,15 @@ public class UserController {
 
         return 1;
     }
+    @RequestMapping("/login")
+    public int login(@RequestBody User user){
+        User u = mapper.selectByUsername(user.getUsername());
+        if (u!=null){
+            if (user.getPassword().equals(u.getPassword())){
+                return 1;//登录成功
+            }
+            return 3;//密码错误
+        }
+        return 2;//代表用户名不存在
+    }
 }

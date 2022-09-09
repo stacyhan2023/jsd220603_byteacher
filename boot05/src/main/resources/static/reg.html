@@ -12,7 +12,7 @@
          @blur="f()">{{info}}<br>
   <input type="text" v-model="user.password" placeholder="请输入密码"><br>
   <input type="text" v-model="user.nick" placeholder="请输入昵称"><br>
-  <input type="button" value="注册" @click="reg()">
+  <input type="button" value="注册" @click="reg()" v-bind:disabled="info=='用户名已存在!'">
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
