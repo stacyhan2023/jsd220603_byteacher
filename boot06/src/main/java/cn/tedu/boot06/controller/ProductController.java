@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
     @Autowired
@@ -17,6 +19,13 @@ public class ProductController {
         System.out.println("product = " + product);
         //创建mapper 调用mapper的insert方法
         mapper.insert(product);
+    }
+
+    @RequestMapping("/select")
+    public List<Product> select(){
+
+        //调用mapper中的查询方法 把查询到的list集合直接响应给客户端
+        return mapper.select();
     }
 }
 
