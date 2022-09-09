@@ -31,6 +31,32 @@
 3. 在ProductController里面创建select方法处理/select请求, 方法中调用mapper的select方法 返回值为List集合里面装着Product对象, 把得到的集合直接响应给客户端,SpringMVC框架当发现响应的内容为自定义对象或集合时 会先转成JSON格式的字符串,然后通过网络传输给客户端,而客户端当发现传递过来的是JSON格式的字符串时Axios框架会自动将JSON格式字符串转成数组或JS对象
 4. 实现mapper里面的select方法
 
+- 删除商品步骤:
+
+1. 在list.html页面中添加一列 每一行商品信息的后面加上删除超链接 废掉超链接的跳转功能,给超链接添加点击事件, 点击时调用del 方法 把需要删除的商品id传递过去
+2. 在del方法中发出异步的get请求 请求地址为/delete?id=xxx  服务器响应后 刷新页面
+3. 在ProductController中创建delete方法处理/delete请求, 方法中调用mapper的deleteById方法把接收到的id传递过去 
+4. 实现mapper里面的deleteById方法
+
+- 修改商品步骤:
+
+1. 在list.html页面中 删除按钮的前面添加修改超链接, 请求地址为/update.html?id=xxx  
+2. 创建update.html页面, 在页面中准备4个文本框和一个按钮, 让文本框和product对象进行双向绑定, 在页面中添加created方法,实现进入页面后立即向/selectById?id=xxx地址发出请求  请求到的数据为自定义的商品对象(JS对象) 把对象赋值给Vue中和页面进行双向绑定的对象,页面会自动发生改变
+3. 在ProductController中添加selectById方法处理/selectById请求, 接收传递过来的id, 然后调用mapper中的selectById方法 返回值为Product对象 把对象直接响应给客户端 
+4. 实现mapper里面的selectById方法 
+5. 在update.html页面中,给修改按钮添加点击事件, 点击后调用update方法
+6. 实现update方法在方法中向/update地址发出异步post请求 把双向绑定的product对象传递给服务器
+7. 在ProductController里面添加update方法处理/update请求, 调用mapper的update方法把接收到的product对象传递过去 
+8. 实现mapper里面的update方法
+
+
+
+
+
+
+
+
+
 
 
 

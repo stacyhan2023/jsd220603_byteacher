@@ -21,4 +21,6 @@ public interface ProductMapper {
 
     @Update("update product set title=#{title},price=#{price},num=#{num} where id=#{id}")
     void update(Product product);
+
+
 }

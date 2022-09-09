@@ -36,10 +36,12 @@
      },
      methods: {
       del(id){
-        axios.get("/delete?id="+id).then(function (response) {
-          alert("删除完成!");
-          location.reload();//刷新页面
-        })
+        if (confirm("您确认删除此商品吗?")){
+          axios.get("/delete?id="+id).then(function (response) {
+            alert("删除完成!");
+            location.reload();//刷新页面
+          })
+        }
       }
      },
      created:function () {
