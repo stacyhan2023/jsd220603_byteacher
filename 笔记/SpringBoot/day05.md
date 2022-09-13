@@ -62,11 +62,25 @@
   
   (null,2000,'微信','2021-05-18',4),
   
-  (null,20000,'微信','2021-07-22',5);
+  (null,-20000,'微信','2021-07-22',5);
+  
+  update trade set money=-20000 where id=7;
 
 1. 统计2021年2月15号到现在的所有红包收益
+
+   select sum(money) from trade where time>='2021-2-15';
+
 2. 查询2021年2月15号到现在 金额大于100 所有女性亲戚的名字和金额
+
+   select name,money
+
+   from trade t join person p on t.p_id=p.id
+
+   where time>'2021-2-15' and abs(money) >100 and gender='女' and rel='亲戚';
+
 3. 查询三个平台(微信,支付宝,现金)分别收入的红包金额  
+
+   select type,sum(money) from trade where money>0 group by type ;
 
 
 
