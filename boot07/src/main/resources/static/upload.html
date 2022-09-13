@@ -48,6 +48,10 @@
     methods: {
       handleRemove(file, fileList) {
         console.log(file, fileList);
+        //当页面中删除图片的时候需要向服务器发出删除请求,让服务器把files文件夹中的图片也删除掉
+        axios.get("/remove?url="+file.response).then(function (response) {
+          console.log("删除完成!");
+        })
       },
       handlePictureCardPreview(file) {
         this.dialogImageUrl = file.url;
@@ -62,7 +66,9 @@
         // v.url = response;
         // response=file.response
         v.url = file.response;
-        v.arr = fileList;
+        v.arr.push(file);
+
+
 
 
 

@@ -38,4 +38,11 @@ public class UploadController {
 
         return "/"+fileName;
     }
+
+    @RequestMapping("/remove")
+    public void remove(String url){
+        System.out.println("url = " + url);
+        //删除文件     e:/files/xxxx.jpg
+        new File("e:/files"+url).delete();
+    }
 }
