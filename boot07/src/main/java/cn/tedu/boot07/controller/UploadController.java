@@ -44,5 +44,8 @@ public class UploadController {
         System.out.println("url = " + url);
         //删除文件     e:/files/xxxx.jpg
         new File("e:/files"+url).delete();
+
+
+
     }
 }

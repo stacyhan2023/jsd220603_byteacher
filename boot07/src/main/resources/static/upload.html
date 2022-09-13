@@ -26,7 +26,9 @@
   </el-dialog>
   <hr>
   <!--response = file.response 代表服务器响应的图片路径-->
-  <img v-for="file in arr" :src="file.response" alt="">
+  <!--<img v-for="file in arr" :src="file.response" alt="">-->
+  <input type="text" v-model="intro" placeholder="图片描述...">
+  <input type="button" value="发布图片" @click="send()">
 </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -42,10 +44,23 @@
         dialogImageUrl: '',
         dialogVisible: false,
         url:"",
-        arr:[]
+        arr:[],
+        intro:""
       }
     },
     methods: {
+      send(){
+        let urlArr = []; //["/a.jpg","/b.jpg","/c.jpg"];
+        for (let file of v.arr) {
+          //把文件对象里面的图片路径添加到新数组中
+          urlArr.push(file.response);
+        }
+          //发请求 把图片路径和图片描述一起提交到服务器
+        let image = {intro:v.intro,urls:urlArr.toString()}
+       axios.post("/insert",image).then(function () {
+         alert("上传完成!");
+       })
+      },
       handleRemove(file, fileList) {
         console.log(file, fileList);
         //当页面中删除图片的时候需要向服务器发出删除请求,让服务器把files文件夹中的图片也删除掉
