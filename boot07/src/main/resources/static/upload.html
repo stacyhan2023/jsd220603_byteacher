@@ -25,7 +25,8 @@
     <img width="100%" :src="dialogImageUrl" alt="">
   </el-dialog>
   <hr>
-  <img :src="url" alt="">
+  <!--response = file.response 代表服务器响应的图片路径-->
+  <img v-for="file in arr" :src="file.response" alt="">
 </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -40,7 +41,8 @@
       return {
         dialogImageUrl: '',
         dialogVisible: false,
-        url:""
+        url:"",
+        arr:[]
       }
     },
     methods: {
@@ -57,7 +59,13 @@
         //fileList代表的是上传成功的所有文件对象(数组)
         console.log("图片上传成功! 图片路径="+response);
         //把响应的图片路径给到变量url 这样页面中的图片就可以显示出来
-        v.url = response;
+        // v.url = response;
+        // response=file.response
+        v.url = file.response;
+        v.arr = fileList;
+
+
+
       }
     }
   })
