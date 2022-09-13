@@ -22,7 +22,12 @@
      el:"body>div",
      data:{
         arr:[]
-     }
+     },
+       created:function () {
+           axios.get("/select").then(function (response) {
+               v.arr = response.data;
+           })
+       }
    })
 </script>
 </body>

@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ImageController {
     @Autowired
@@ -16,5 +18,10 @@ public class ImageController {
     public void insert(@RequestBody Image image){
         System.out.println("image = " + image);
         mapper.insert(image);
+    }
+
+    @RequestMapping("/select")
+    public List<Image> select(){
+        return mapper.select();
     }
 }
