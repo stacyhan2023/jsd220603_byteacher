@@ -8,8 +8,11 @@
 <body>
 <div id="app">
 <h1>上传页面</h1>
+  <!--name代表发请求时参数的名称
+  action代表请求地址 -->
   <el-upload
-          action="https://jsonplaceholder.typicode.com/posts/"
+          name="pic"
+          action="/upload"
           list-type="picture-card"
           :on-preview="handlePictureCardPreview"
           :on-remove="handleRemove">
