@@ -15,6 +15,7 @@
         <!--/a.jpg,/b.jpg,/c.jpg-->
         <!--此时image对象中有一个urlArr数组装着多个图片的路径 遍历添加图片标签-->
         <img v-for="url in image.urlArr" :src="url" width="100">
+        <a href="javascript:void(0)" @click="del(image.id)">删除</a>
     </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -35,6 +36,15 @@
                    image.urlArr = image.urls.split(",");
                }
            })
+       },
+       methods:{
+         del(id){
+             if (confirm("您确定删除吗?")){
+                 axios.get("/delete?id="+id).then(function (response) {
+                     location.reload();//刷新页面
+                 })
+             }
+         }
        }
    })
 </script>
