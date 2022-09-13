@@ -15,7 +15,6 @@ public interface ImageMapper {
     @Insert("insert into image values(null,#{intro},#{urls})")
     void insert(Image image);
 
-
     @Select("select * from image")
     List<Image> select();
 
