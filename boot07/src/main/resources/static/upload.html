@@ -50,13 +50,10 @@
     },
     methods: {
       send(){
-        let urlArr = []; //["/a.jpg","/b.jpg","/c.jpg"];
-        for (let file of v.arr) {
-          //把文件对象里面的图片路径添加到新数组中
-          urlArr.push(file.response);
-        }
+
           //发请求 把图片路径和图片描述一起提交到服务器
-        let image = {intro:v.intro,urls:urlArr.toString()}
+        //v.arr.toString()是把数组中多个图片路径字符串 拼成了一个字符串
+        let image = {intro:v.intro,urls:v.arr.toString()}
        axios.post("/insert",image).then(function () {
          alert("上传完成!");
        })
@@ -81,7 +78,8 @@
         // v.url = response;
         // response=file.response
         v.url = file.response;
-        v.arr.push(file);
+        //file.response代表上传成功的图片路径
+        v.arr.push(file.response);
 
 
 
