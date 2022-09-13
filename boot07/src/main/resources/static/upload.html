@@ -56,6 +56,7 @@
         let image = {intro:v.intro,urls:v.arr.toString()}
        axios.post("/insert",image).then(function () {
          alert("上传完成!");
+         location.href = "/";
        })
       },
       handleRemove(file, fileList) {

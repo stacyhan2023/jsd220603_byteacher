@@ -12,7 +12,9 @@
     <hr>
     <div v-for="image in arr">
         <h2>{{image.intro}}</h2>
-        <img src="" width="100">
+        <!--/a.jpg,/b.jpg,/c.jpg-->
+        <!--此时image对象中有一个urlArr数组装着多个图片的路径 遍历添加图片标签-->
+        <img v-for="url in image.urlArr" :src="url" width="100">
     </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -26,6 +28,12 @@
        created:function () {
            axios.get("/select").then(function (response) {
                v.arr = response.data;
+               //遍历每个图片对象
+               for (let image of v.arr) {
+                   //给image对象添加一个数组的属性 里面装图片的路径
+                   // /a.jpg,/b.jpg,/c.jpg     ["/a.jpg","/b.jpg","/c.jpg"]
+                   image.urlArr = image.urls.split(",");
+               }
            })
        }
    })
