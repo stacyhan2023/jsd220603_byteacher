@@ -10,10 +10,13 @@
 <h1>上传页面</h1>
   <!--name代表发请求时参数的名称
   action代表请求地址 -->
+  <!--:on-success的作用是这是上传组件,
+  上传成功时调用的方法为handleSuccess方法-->
   <el-upload
           name="pic"
           action="/upload"
           list-type="picture-card"
+          :on-success="handleSuccess"
           :on-preview="handlePictureCardPreview"
           :on-remove="handleRemove">
     <i class="el-icon-plus"></i>
@@ -21,12 +24,11 @@
   <el-dialog :visible.sync="dialogVisible">
     <img width="100%" :src="dialogImageUrl" alt="">
   </el-dialog>
-
-
+  <hr>
+  <img :src="url" alt="">
 </div>
 </body>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
-
 <!-- import Vue before Element -->
 <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
 <!-- import JavaScript -->
@@ -37,7 +39,8 @@
     data: function () {
       return {
         dialogImageUrl: '',
-        dialogVisible: false
+        dialogVisible: false,
+        url:""
       }
     },
     methods: {
@@ -47,6 +50,14 @@
       handlePictureCardPreview(file) {
         this.dialogImageUrl = file.url;
         this.dialogVisible = true;
+      },
+      handleSuccess(response,file,fileList){
+        //response代表上传成功时服务器响应的数据,
+        //file代表的是当前上传成功的文件对象
+        //fileList代表的是上传成功的所有文件对象(数组)
+        console.log("图片上传成功! 图片路径="+response);
+        //把响应的图片路径给到变量url 这样页面中的图片就可以显示出来
+        v.url = response;
       }
     }
   })

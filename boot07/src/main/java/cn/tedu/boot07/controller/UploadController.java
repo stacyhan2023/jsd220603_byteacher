@@ -11,7 +11,7 @@ import java.util.UUID;
 @RestController
 public class UploadController {
     @RequestMapping("/upload")
-    public void upload(MultipartFile pic) throws IOException {
+    public String upload(MultipartFile pic) throws IOException {
         System.out.println("pic = " + pic);
         //得到文件的原始文件名        a.jpg
         String fileName = pic.getOriginalFilename();
@@ -36,8 +36,6 @@ public class UploadController {
         pic.transferTo(new File(filePath));
 
 
-
-
-
+        return "/"+fileName;
     }
 }
