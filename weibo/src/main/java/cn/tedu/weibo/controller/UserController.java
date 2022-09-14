@@ -49,5 +49,4 @@ public class UserController {
     public void logout(HttpSession session){
         session.removeAttribute("user");
     }
-
 }

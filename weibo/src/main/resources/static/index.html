@@ -41,14 +41,13 @@
            })
        },
        methods:{
-         logout(){
-             if (confirm("您确定要退出登录吗?")){
-                 axios.get("/logout").then(function () {
-                    v.isLogin=false;
-                 })
-             }
-
-         }
+           logout(){
+               if (confirm("您确定要退出登录吗?")){
+                   axios.get("/logout").then(function () {
+                       v.isLogin=false;
+                   })
+               }
+           }
        }
    })
 </script>
