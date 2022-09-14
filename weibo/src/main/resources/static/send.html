@@ -53,6 +53,9 @@
                        if (response.data==1){
                            alert("发布完成!");
                            location.href="/";//回到首页
+                       }else{
+                           alert("请先登录!");
+                           location.href = "/login.html";
                        }
                    })
             },
