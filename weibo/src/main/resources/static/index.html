@@ -7,8 +7,36 @@
 <body>
 <div>
   <h1>微博首页</h1>
-  <a href="/reg.html">注册</a>
-  <a href="/login.html">登录</a>
+    <!--isLogin=true时表示登录过 显示div里面的内容-->
+    <div v-if="isLogin">
+        <h2>欢迎xxx回来</h2>
+        <a href="/send.html">发微博</a>
+        <a href="">退出登录</a>
+    </div>
+
+    <div v-else>
+        <a href="/reg.html">注册</a>
+        <a href="/login.html">登录</a>
+    </div>
+
 </div>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script>
+   let v = new Vue({
+     el:"body>div",
+     data:{
+         isLogin:false,
+         user:{}
+     },
+       created:function () {
+           //发请求获取当前登录的用户信息
+           axios.get("/currentUser").then(function (response) {
+               //服务器返回的是当前登录的用户信息
+               v.user = response.data;
+           })
+       }
+   })
+</script>
 </body>
 </html>
