@@ -10,6 +10,7 @@ public class WeiboController {
     @RequestMapping("/weibo/insert")
     public int insert(@RequestBody Weibo weibo){
         System.out.println("weibo = " + weibo);
+
         return 1;
     }
 }
