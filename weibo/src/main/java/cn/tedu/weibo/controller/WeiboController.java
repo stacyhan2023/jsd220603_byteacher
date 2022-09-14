@@ -41,4 +41,9 @@ public class WeiboController {
     public List<Weibo> select(){
         return mapper.select();
     }
+    @RequestMapping("/weibo/selectById")
+    public Weibo selectById(int id){
+        System.out.println("id = " + id);
+        return mapper.selectById(id);
+    }
 }

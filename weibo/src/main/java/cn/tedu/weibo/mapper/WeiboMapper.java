@@ -21,5 +21,6 @@ public interface WeiboMapper {
     @Select("select id,content,urls,nick from weibo")
     List<Weibo> select();
 
-
+    @Select("select id,content,urls,nick,created from weibo where id=#{id}")
+    Weibo selectById(int id);
 }

@@ -7,9 +7,9 @@
 <body>
 <div>
   <h1>微博详情页面</h1>
-  <h2>xxx说:xxx</h2>
-  <p>发布于:xxxx年xxx月xxx日 xx:xx:xx</p>
-  <img src="" width="200">
+  <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
+  <p>发布于:{{weibo.created}}</p>
+  <img v-for="url in weibo.urls.split(',')" :src="url" width="200">
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
@@ -20,7 +20,7 @@
         weibo:{}
      },
      created:function () {
-       //通过地址栏中的id发请求获取微博信息
+       //通过地址栏中的id发请求获取微博信息  /weibo/selectById?id=1
        axios.get("/weibo/selectById"+location.search).then(function (response) {
          v.weibo = response.data;
        })
