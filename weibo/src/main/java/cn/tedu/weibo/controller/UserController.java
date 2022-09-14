@@ -41,6 +41,7 @@ public class UserController {
     @RequestMapping("/currentUser")
     public User currentUser(HttpSession session){
         //从当前客户端对应的会话对象中取出登录成功时保存的用户对象
+        //如果没有登录得到的是null
         return (User) session.getAttribute("user");
     }
 

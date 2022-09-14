@@ -9,7 +9,7 @@
   <h1>微博首页</h1>
     <!--isLogin=true时表示登录过 显示div里面的内容-->
     <div v-if="isLogin">
-        <h2>欢迎xxx回来</h2>
+        <h2>欢迎{{user.nick}}回来</h2>
         <a href="/send.html">发微博</a>
         <a href="">退出登录</a>
     </div>
@@ -33,6 +33,10 @@
            //发请求获取当前登录的用户信息
            axios.get("/currentUser").then(function (response) {
                //服务器返回的是当前登录的用户信息
+               //如果当前客户端没有登录服务器返回的是null但是由于中间参与了JSON格式的字符串
+               //服务器返回的null到客户端response.data这里得到的是空字符串 ""
+               //如果返回的是空字符串代表没有登录 否则代表登录了
+               v.isLogin = response.data==""?false:true;
                v.user = response.data;
            })
        }
