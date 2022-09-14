@@ -3,6 +3,9 @@ package cn.tedu.weibo.mapper;
 import cn.tedu.weibo.entity.Weibo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface WeiboMapper {
@@ -15,5 +18,6 @@ public interface WeiboMapper {
     void insert(Weibo weibo);
 
 
-
+    @Select("select id,content,urls,nick from weibo")
+    List<Weibo> select();
 }

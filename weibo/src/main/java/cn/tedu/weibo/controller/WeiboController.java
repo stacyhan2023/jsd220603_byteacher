@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class WeiboController {
@@ -34,5 +35,10 @@ public class WeiboController {
         //把weibo对象中的数据保存到weibo表
         mapper.insert(weibo);
         return 1;
+    }
+
+    @RequestMapping("/weibo/select")
+    public List<Weibo> select(){
+        return mapper.select();
     }
 }

@@ -18,7 +18,11 @@
         <a href="/reg.html">注册</a>
         <a href="/login.html">登录</a>
     </div>
-
+    <hr>
+    <div v-for="weibo in arr">
+        <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
+        <img src="" alt="">
+    </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
@@ -26,10 +30,16 @@
    let v = new Vue({
      el:"body>div",
      data:{
+         arr:[],
          isLogin:false,
          user:{}
      },
        created:function () {
+            //发请求获取所有微博信息
+           axios.get("/weibo/select").then(function (response) {
+               v.arr = response.data;
+           })
+
            //发请求获取当前登录的用户信息
            axios.get("/currentUser").then(function (response) {
                //服务器返回的是当前登录的用户信息
