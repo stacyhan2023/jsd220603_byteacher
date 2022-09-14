@@ -19,26 +19,68 @@
 
 
 
+### 表设计面试题    
 
+2021年过年时小明在这些天都收到了许多亲戚\朋友还有同事的红包,也发出了一些红包,有的是微信,有的是支付宝也有现金,请参考下面的题目帮小明设计表格保存红包的信息
 
+1. 设计表 (至少包含一张流水表) 
 
+- 先列出需要保存的所有信息
 
+  - 人物关系,红包类型,红包金额,红包时间,性别,名字
 
+  - 流水表: id,红包金额,红包类型,时间,人物id
 
+    create table trade(id int primary key auto_increment,money int,type varchar(10),time date,p_id int );
 
+  - 人物表: id, 名字,性别,关系
 
+    create table person(id int primary key auto_increment,name varchar(20),gender char(1),rel varchar(10));
+    
+  - 往人物表中插入以下数据:
+刘德华,男,亲戚           杨幂,女,亲戚             马云,男,同事               特朗普,男,朋友 
+    
+    貂蝉,女,朋友
+    
+    insert into person values(null,'刘德华','男','亲戚'),(null,'杨幂','女','亲戚'),(null,'马云','男','同事'),(null,'特朗普','男','朋友'),(null,'貂蝉','女','朋友');
+    
+  - 往流水表中插入以下数据
+  
+  ```
+      刘德华 微信 收1000 2021-03-20   
+      杨幂 现金 收500 发50 2021-04-14    
+      马云 支付宝 收20000 发5 2021-03-11    
+      特朗普 微信 收2000  2021-05-18    
+      貂蝉 微信 发20000 2021-07-22
+  ```
+  
+  ​    insert into trade values(null,1000,'微信','2021-03-20',1),
+  
+  (null,500,'现金','2021-04-14',2),(null,-50,'现金','2021-04-14',2),
+  
+  (null,20000,'支付宝','2021-03-11',3),(null,-5,'支付宝','2021-03-11',3),
+  
+  (null,2000,'微信','2021-05-18',4),
+  
+  (null,-20000,'微信','2021-07-22',5);
+  
+  update trade set money=-20000 where id=7;
 
+1. 统计2021年2月15号到现在的所有红包收益
 
+   select sum(money) from trade where time>='2021-2-15';
 
+2. 查询2021年2月15号到现在 金额大于100 所有女性亲戚的名字和金额
 
+   select name,money
 
+   from trade t join person p on t.p_id=p.id
 
-### 晚课19:40  
+   where time>'2021-2-15' and abs(money) >100 and gender='女' and rel='亲戚';
 
-1. 考完试之后可以先将微博练习中 登录功能实现
-2. 晚课会讲表设计相关的一套面试题
+3. 查询三个平台(微信,支付宝,现金)分别收入的红包金额  
 
-
+   select type,sum(money) from trade where money>0 group by type ;
 
 
 
