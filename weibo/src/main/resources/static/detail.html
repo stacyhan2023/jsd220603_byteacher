@@ -6,26 +6,45 @@
 </head>
 <body>
 <div>
-  <h1>微博详情页面</h1>
-  <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
-  <p>发布于:{{weibo.created}}</p>
-  <img v-for="url in weibo.urls.split(',')" :src="url" width="200">
+    <h1>微博详情页面</h1>
+    <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
+    <p>发布于:{{weibo.created}}</p>
+    <img v-for="url in weibo.urls.split(',')" :src="url" width="200">
+    <hr>
+    <h2>评论相关</h2>
+    <input type="text" v-model="comment.content" placeholder="评论点儿什么...">
+    <input type="button" value="评论" @click="sendComment()">
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script>
-   let v = new Vue({
-     el:"body>div",
-     data:{
-        weibo:{}
-     },
-     created:function () {
-       //通过地址栏中的id发请求获取微博信息  /weibo/selectById?id=1
-       axios.get("/weibo/selectById"+location.search).then(function (response) {
-         v.weibo = response.data;
-       })
-     }
-   })
+    let v = new Vue({
+        el: "body>div",
+        data: {
+            weibo: {urls: ""},
+            comment:{content:"",weiboId:""}
+        },
+        created: function () {
+            //通过地址栏中的id发请求获取微博信息  /weibo/selectById?id=1
+            axios.get("/weibo/selectById" + location.search).then(function (response) {
+                v.weibo = response.data;
+            })
+        },
+        methods:{
+            sendComment(){
+                //从weibo对象中得到微博的id 赋值给评论对象
+                v.comment.weiboId = v.weibo.id;
+                axios.post("/comment/insert",v.comment).then(function (response) {
+                    if (response.data==1){
+                        location.reload();
+                    }else{//没有登录
+                        alert("请先登录再评论!");
+                        location.href="/login.html";
+                    }
+                })
+            }
+        }
+    })
 </script>
 </body>
 </html>
