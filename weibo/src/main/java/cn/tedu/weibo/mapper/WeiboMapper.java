@@ -20,4 +20,6 @@ public interface WeiboMapper {
 
     @Select("select id,content,urls,nick from weibo")
     List<Weibo> select();
+
+
 }

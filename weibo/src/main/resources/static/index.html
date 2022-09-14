@@ -21,7 +21,7 @@
     <hr>
     <div v-for="weibo in arr">
         <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
-        <img src="" alt="">
+        <img v-for="url in weibo.urlArr" :src="url" width="100" alt="">
     </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -38,6 +38,11 @@
             //发请求获取所有微博信息
            axios.get("/weibo/select").then(function (response) {
                v.arr = response.data;
+               for (let weibo of v.arr) {
+                   // "/a.jpg,/b.jpg,/c.jpg"  ->  ["/a.jpg","/b.jpg","/c.jpg"]
+                   //JavaScript语言允许给对象动态添加属性
+                   weibo.urlArr = weibo.urls.split(",");
+               }
            })
 
            //发请求获取当前登录的用户信息
