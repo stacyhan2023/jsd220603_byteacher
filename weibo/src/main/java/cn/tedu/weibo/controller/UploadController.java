@@ -30,4 +30,10 @@ public class UploadController {
         //把文件路径返回给客户端
         return "/"+fileName;
     }
+
+    @RequestMapping("/remove")
+    public void remove(String url){
+        //删除文件
+        new File("e:/files"+url).delete();
+    }
 }

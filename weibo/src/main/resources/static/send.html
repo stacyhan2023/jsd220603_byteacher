@@ -38,6 +38,11 @@
         methods: {
             handleRemove(file, fileList) {
                 console.log(file, fileList);
+                //发出删除的请求  file.response得到的是文件的路径
+                console.log(file.response);
+                axios.get("/remove?url="+file.response).then(function () {
+                    console.log("删除成功!");
+                })
             },
             handlePictureCardPreview(file) {
                 this.dialogImageUrl = file.url;
