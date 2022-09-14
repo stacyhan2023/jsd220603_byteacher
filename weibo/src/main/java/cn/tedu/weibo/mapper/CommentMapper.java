@@ -4,6 +4,9 @@ import cn.tedu.weibo.entity.Comment;
 import cn.tedu.weibo.entity.Weibo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 @Mapper
 public interface CommentMapper {
@@ -15,5 +18,8 @@ public interface CommentMapper {
 
     @Insert("insert into comment values(null,#{content},#{nick},#{weiboId})")
     void insert(Comment comment);
+
+    @Select("select id,content,nick from comment where weibo_id=#{id}")
+    List<Comment> selectByWeiboId(int id);
 
 }

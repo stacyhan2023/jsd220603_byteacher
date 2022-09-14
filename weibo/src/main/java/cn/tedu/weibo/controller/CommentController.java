@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 public class CommentController {
@@ -26,5 +27,10 @@ public class CommentController {
         //把comment的数据保存到 comment表中
         mapper.insert(comment);
         return 1;
+    }
+    @RequestMapping("/comment/selectByWeiboId")
+    public List<Comment> selectByWeiboId(int id){
+
+        return mapper.selectByWeiboId(id);
     }
 }
