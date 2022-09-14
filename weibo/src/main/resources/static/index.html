@@ -20,8 +20,12 @@
     </div>
     <hr>
     <div v-for="weibo in arr">
-        <h2>{{weibo.nick}}说:{{weibo.content}}</h2>
-        //遍历weibo对象中新增的urlArr数组 生成多个图片标签
+        <h2>
+            <a :href="'/detail.html?id='+weibo.id">
+                {{weibo.nick}}说:{{weibo.content}}
+            </a>
+        </h2>
+        <!--遍历weibo对象中新增的urlArr数组 生成多个图片标签-->
         <img v-for="url in weibo.urlArr" :src="url" width="100" alt="">
     </div>
 </div>
