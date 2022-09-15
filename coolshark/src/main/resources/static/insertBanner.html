@@ -14,8 +14,11 @@
 <body>
 <div id="app">
     <el-page-header style="background-color: #0095d7;color: white;line-height: 60px" content="添加轮播图" @back="goBack"></el-page-header>
+    <!--limit控制图片数量-->
     <el-upload
-            action="https://jsonplaceholder.typicode.com/posts/"
+            name="pic"
+            limit="1"
+            action="/upload"
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleRemove">
