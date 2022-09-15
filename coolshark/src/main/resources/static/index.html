@@ -36,13 +36,8 @@
                          text-color="#fff"
                          active-text-color="#fff"
                          mode="horizontal" @select="handleSelect">
-                    <el-menu-item index="1">精彩活动</el-menu-item>
-                    <el-menu-item index="2">当季女装</el-menu-item>
-                    <el-menu-item index="3">品牌男装</el-menu-item>
-                    <el-menu-item index="4">环球美食</el-menu-item>
-                    <el-menu-item index="5">医药健康</el-menu-item>
-                    <el-menu-item index="6">美妆彩妆</el-menu-item>
-                    <el-menu-item index="7">母婴产品</el-menu-item>
+                    <el-menu-item v-for="c in categoryArr" :index="c.id">{{c.name}}</el-menu-item>
+
                     <div style="float:right;position: relative;top: 10px">
                         <el-input placeholder="请输入搜索内容">
                             <el-button slot="append" icon="el-icon-search"></el-button>
@@ -126,6 +121,7 @@
         el: '#app',
         data: function () {
             return {
+                categoryArr:[],
                 activeIndex:"1",
                 topArr:[{title:"小米电视",saleCount:685},{title:"李宁毛巾",saleCount:457},
                     {title:"安踏拖鞋",saleCount:185},{title:"华为手机",saleCount:57},
@@ -148,6 +144,12 @@
             handleSelect(key,keyPath){
                 console.log(key,keyPath);
             }
+        },
+        created:function () {
+            //发请求获取所有分类信息
+            axios.get("/category/select").then(function (response) {
+                v.categoryArr = response.data;
+            })
         }
     })
 </script>
