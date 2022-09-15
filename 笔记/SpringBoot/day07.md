@@ -22,3 +22,14 @@ create table user(id int primary key auto_increment,username varchar(50),passwor
 
 3. 创建 UserController 添加 login 方法处理/login 请求, 调用 mapper 里面的方法 给客户端响 应 1,2,3
 
+### 首页分类展示步骤:
+
+1. 建表并准备数据
+
+   create table category(id int primary key auto_increment,name varchar(20));
+
+   insert into category values(null,'精彩活动'),(null,'当季女装'),(null,'品牌男装'),(null,'环球美食'),(null,'医药健康'),(null,'啦啦啦');
+
+2. 创建Category实体类, 创建CategoryMapper
+
+3. 创建CategoryController
