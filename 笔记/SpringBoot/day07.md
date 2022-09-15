@@ -30,6 +30,18 @@ create table user(id int primary key auto_increment,username varchar(50),passwor
 
    insert into category values(null,'精彩活动'),(null,'当季女装'),(null,'品牌男装'),(null,'环球美食'),(null,'医药健康'),(null,'啦啦啦');
 
-2. 创建Category实体类, 创建CategoryMapper
+2. 创建Category实体类, 创建CategoryMapper 添加select方法 查询所有
 
-3. 创建CategoryController
+3. 创建CategoryController 添加select方法处理/category/select请求
+
+4. 在index.html页面让分类展示部分的代码和categoryArr数组进行绑定,  在created方法中向/category/select地址发出请求获取所有分类数据 把得到的数据赋值给categoryArr即可.
+
+### 首页轮播图展示步骤
+
+1. 建表和准备数据
+
+   create table banner(id int primary key auto_increment,url varchar(200));
+
+   insert into banner values(null,'/imgs/b1.jpg'),(null,'/imgs/b2.jpg'),(null,'/imgs/b3.jpg'),(null,'/imgs/b4.jpg');
+
+2. 
