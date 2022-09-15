@@ -27,4 +27,10 @@ public class UploadController {
         pic.transferTo(new File(filePath));
         return "/"+fileName;
     }
+
+    @RequestMapping("/remove")
+    public void remove(String url){
+        //删除文件
+        new File("e:/files"+url).delete();
+    }
 }

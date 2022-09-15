@@ -50,6 +50,9 @@
             },
             handleRemove(file, fileList) {
                 console.log(file, fileList);
+                axios.get("/remove?url="+file.response).then(function () {
+                    v.$message.success("删除完成!");
+                })
             },
             handlePictureCardPreview(file) {
                 this.dialogImageUrl = file.url;
