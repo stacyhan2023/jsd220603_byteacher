@@ -87,17 +87,16 @@
         },
         methods: {
             handleSuccess(response,file,fileList){
-                v.url = response;
+                v.p.url = response;
             },
             send(){
-                if (v.url==""){
+                if (v.p.url==""){
                     v.$message.error("请选择上传的图片!");
                     return;
                 }
-                //发出添加轮播图的请求
-                axios.get("/banner/insert?url="+v.url).then(function () {
-                    //返回后台管理页面
-                    location.href = "/admin.html";
+                //发出添加商品的请求
+                axios.post("/product/insert",v.p).then(function () {
+                    location.href="/admin.html";
                 })
             },
             goBack(){
