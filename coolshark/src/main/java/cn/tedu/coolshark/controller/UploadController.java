@@ -33,4 +33,6 @@ public class UploadController {
         //删除文件
         new File("e:/files"+url).delete();
     }
+
+
 }

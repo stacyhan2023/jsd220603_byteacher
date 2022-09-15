@@ -21,4 +21,9 @@ public class BannerController {
     public void delete(int id){
         mapper.deleteById(id);
     }
+    @RequestMapping("/banner/insert")
+    public void insert(String url){
+        mapper.insert(url);
+
+    }
 }
