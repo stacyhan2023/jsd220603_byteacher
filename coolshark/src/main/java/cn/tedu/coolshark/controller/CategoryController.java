@@ -22,5 +22,9 @@ public class CategoryController {
     public void delete(int id){
         mapper.deleteById(id);
     }
+    @RequestMapping("/category/insert")
+    public void insert(String name){
+        mapper.insert(name);
+    }
 
 }

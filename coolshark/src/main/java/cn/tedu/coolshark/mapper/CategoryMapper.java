@@ -2,6 +2,7 @@ package cn.tedu.coolshark.mapper;
 
 import cn.tedu.coolshark.entity.Category;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,5 +16,8 @@ public interface CategoryMapper {
 
     @Delete("delete from category where id=#{id}")
     void deleteById(int id);
+
+    @Insert("insert into category values(null,#{name})")
+    void insert(String name);
 
 }

@@ -175,7 +175,15 @@
             handleSelect(key,keyPath){
                 console.log(key);
                 if (key=='1-2'){
-                    v.$message("添加分类");
+                   let name = prompt("请输入分类名称");
+                   if (name!=null&&name.trim()!=""){
+                       //发出添加分类的请求
+                       axios.get("/category/insert?name="+name).then(function () {
+                           location.reload();//刷新页面
+                       })
+                   }
+
+
                 }else if (key=='2-2'){
                     v.$message("添加轮播图");
                 }else if (key=='3-2'){
