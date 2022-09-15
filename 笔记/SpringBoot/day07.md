@@ -44,4 +44,10 @@ create table user(id int primary key auto_increment,username varchar(50),passwor
 
    insert into banner values(null,'/imgs/b1.jpg'),(null,'/imgs/b2.jpg'),(null,'/imgs/b3.jpg'),(null,'/imgs/b4.jpg');
 
-2. 
+2. 创建Banner实体类有id和url两个属性
+
+3. 创建BannerMapper 里面创建一个select方法
+
+4. 在index.html首页中的created方法里面向/banner/select地址发出请求获取数据把得到的数据赋值给bannerArr数组, 让页面中的轮播图和bannerArr数组进行绑定
+
+5. 创建BannerController 添加select方法处理/banner/select请求,调用mapper里面的select方法获取到所有轮播图的数据响应给客户端

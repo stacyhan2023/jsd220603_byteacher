@@ -51,14 +51,8 @@
             <el-row gutter="20">
                 <el-col span="18">
                     <el-carousel height="300px">
-                        <el-carousel-item>
-                            <img src="imgs/b1.jpg" width="100%" height="100%" alt="">
-                        </el-carousel-item>
-                        <el-carousel-item>
-                            <img src="imgs/b2.jpg" width="100%" height="100%" alt="">
-                        </el-carousel-item>
-                        <el-carousel-item>
-                            <img src="imgs/b3.jpg" width="100%" height="100%" alt="">
+                        <el-carousel-item v-for="b in bannerArr">
+                            <img :src="b.url" width="100%" height="100%" alt="">
                         </el-carousel-item>
                     </el-carousel>
                 </el-col>
@@ -122,6 +116,7 @@
         data: function () {
             return {
                 categoryArr:[],
+                bannerArr:[],
                 activeIndex:"1",
                 topArr:[{title:"小米电视",saleCount:685},{title:"李宁毛巾",saleCount:457},
                     {title:"安踏拖鞋",saleCount:185},{title:"华为手机",saleCount:57},
@@ -150,6 +145,11 @@
             axios.get("/category/select").then(function (response) {
                 v.categoryArr = response.data;
             })
+            //发请求获取所有轮播图信息
+            axios.get("/banner/select").then(function (response) {
+                v.bannerArr = response.data;
+            })
+
         }
     })
 </script>
