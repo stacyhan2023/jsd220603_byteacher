@@ -17,4 +17,10 @@ public class CategoryController {
     public List<Category> select(){
         return mapper.select();
     }
+
+    @RequestMapping("/category/delete")
+    public void delete(int id){
+        mapper.deleteById(id);
+    }
+
 }

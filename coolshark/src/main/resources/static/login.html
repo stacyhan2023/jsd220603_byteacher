@@ -66,7 +66,7 @@
             login(){
                 axios.post("/login",v.user).then(function (response) {
                     if (response.data==1){
-                        location.href="/";
+                        location.href="/admin.html";
                     }else if (response.data==2){
                         v.$message.error("用户名不存在!");
                     }else{

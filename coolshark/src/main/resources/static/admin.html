@@ -63,10 +63,15 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template slot-scope="scope">
-                            <el-button
-                                    size="mini"
-                                    type="danger"
-                                    @click="categoryDelete(scope.$index, scope.row)">删除</el-button>
+
+
+                                <el-popconfirm title="您确认删除此分类吗?"
+                                               @confirm="categoryDelete(scope.$index, scope.row)">
+                                    <el-button
+                                            slot="reference"
+                                            size="mini"
+                                            type="danger">删除</el-button>
+                                </el-popconfirm>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -134,10 +139,8 @@
         data: function () {
             return {
                 currentIndex:"1-1",
-                categoryArr:[{name:"品牌服装"},{name:"精品女装"},
-                    {name:"美食健康"},{name:"数码科技"},{name:"篮球鞋"}],
-                bannerArr:[{url:"imgs/b1.jpg"},{url:"imgs/b2.jpg"},
-                    {url:"imgs/b3.jpg"}],
+                categoryArr:[],
+                bannerArr:[],
                 productArr:[{title:"森马牛仔裤女宽松慢跑裤运动风2022春季新款显瘦束脚长裤复古",price:233,oldPrice:598,url:"imgs/a.jpg",saleCount:2342},
                     {title:"茵曼马甲连衣裙两件套春季新款娃娃领色织格长袖背心裙套装",price:233,oldPrice:598,url:"imgs/b.jpg",saleCount:2342},
                     {title:"雪中飞墨绿色短袖t恤女夏2022新款纯棉半袖打底体恤夏季上衣潮ins",price:233,oldPrice:598,url:"imgs/c.jpg",saleCount:2342},
@@ -154,7 +157,11 @@
         },
         methods: {
             categoryDelete(i,category){
-
+                //向服务器发出删除分类的请求
+                axios.get("/category/delete?id="+category.id).then(function () {
+                    //删除数组中的数据 页面会跟着改变
+                    v.categoryArr.splice(i,1);
+                })
             },
             handleSelect(key,keyPath){
                 console.log(key);
@@ -167,8 +174,15 @@
                 }else{
                     v.currentIndex = key;
                 }
-
             }
+        },
+        created:function () {
+            axios.get("/category/select").then(function (response) {
+                v.categoryArr = response.data;
+            })
+            axios.get("/banner/select").then(function (response) {
+                v.bannerArr = response.data;
+            })
         }
     })
 </script>

@@ -17,4 +17,5 @@ public class BannerController {
     public List<Banner> select(){
         return mapper.select();
     }
+
 }
