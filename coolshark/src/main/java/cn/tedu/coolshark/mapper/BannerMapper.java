@@ -19,5 +19,4 @@ public interface BannerMapper {
     @Insert("insert into banner values(null,#{url})")
     void insert(String url);
 
-
 }

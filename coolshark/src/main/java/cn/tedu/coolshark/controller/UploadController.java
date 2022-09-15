@@ -34,5 +34,4 @@ public class UploadController {
         new File("e:/files"+url).delete();
     }
 
-
 }
