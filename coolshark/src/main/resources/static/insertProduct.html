@@ -17,21 +17,26 @@
     <el-card style="width: 600px;height: 700px;margin: 0 auto">
         <el-form label-width="80px">
             <el-form-item label="商品标题">
-                <el-input type="text"></el-input>
+                <el-input v-model="p.title" type="text"></el-input>
             </el-form-item>
             <el-form-item label="商品价格">
-                <el-input type="text"></el-input>
+                <el-input v-model="p.price" type="text"></el-input>
             </el-form-item>
             <el-form-item label="商品原价">
-                <el-input type="text"></el-input>
+                <el-input v-model="p.oldPrice" type="text"></el-input>
             </el-form-item>
             <el-form-item label="销量">
-                <el-input type="text"></el-input>
+                <el-input v-model="p.saleCount" type="text"></el-input>
             </el-form-item>
             <el-form-item label="库存">
-                <el-input type="text"></el-input>
+                <el-input v-model="p.num" type="text"></el-input>
             </el-form-item>
             <el-form-item label="商品分类">
+                <el-select v-model="p.categoryId">
+                    <!--遍历所有分类信息并展示在下拉选中-->
+                    <el-option v-for="c in categoryArr"
+                               :label="c.name" :value="c.id"></el-option>
+                </el-select>
             </el-form-item>
             <el-form-item label="商品图片">
                 <!--limit控制图片数量-->
@@ -69,8 +74,16 @@
             return {
                 dialogImageUrl: '',
                 dialogVisible: false,
-                url:""
+                p:{title:"",price:"",oldPrice:"",
+                    saleCount:"",num:"",categoryId:"",url:""},
+                categoryArr:[]
             }
+        },
+        created:function () {
+            //发请求获取所有分类信息
+            axios.get("/category/select").then(function (response) {
+                v.categoryArr = response.data;
+            })
         },
         methods: {
             handleSuccess(response,file,fileList){
