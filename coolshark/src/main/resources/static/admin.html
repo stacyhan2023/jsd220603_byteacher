@@ -64,7 +64,6 @@
                     <el-table-column label="操作">
                         <template slot-scope="scope">
 
-
                                 <el-popconfirm title="您确认删除此分类吗?"
                                                @confirm="categoryDelete(scope.$index, scope.row)">
                                     <el-button
@@ -89,10 +88,13 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template slot-scope="scope">
-                            <el-button
-                                    size="mini"
-                                    type="danger"
-                                    @click="categoryDelete(scope.$index, scope.row)">删除</el-button>
+                            <el-popconfirm title="您确认删除此轮播图吗?"
+                                           @confirm="bannerDelete(scope.$index, scope.row)">
+                                <el-button
+                                        slot="reference"
+                                        size="mini"
+                                        type="danger">删除</el-button>
+                            </el-popconfirm>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -156,6 +158,13 @@
             }
         },
         methods: {
+            bannerDelete(i,banner){
+                //发出删除轮播图请求
+              axios.get("/banner/delete?id="+banner.id).then(function () {
+                  //删除数组中的数据
+                  v.bannerArr.splice(i,1);
+              })
+            },
             categoryDelete(i,category){
                 //向服务器发出删除分类的请求
                 axios.get("/category/delete?id="+category.id).then(function () {
