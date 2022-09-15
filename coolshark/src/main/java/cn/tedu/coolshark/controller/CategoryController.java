@@ -23,8 +23,10 @@ public class CategoryController {
         mapper.deleteById(id);
     }
     @RequestMapping("/category/insert")
-    public void insert(String name){
+    public List<Category> insert(String name){
         mapper.insert(name);
+        //把所有分类返回给客户端
+        return mapper.select();
     }
 
 }

@@ -63,7 +63,8 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template slot-scope="scope">
-
+                                <el-button size="mini" @click="updateCategory(scope.row)"
+                                           type="success">修改</el-button>
                                 <el-popconfirm title="您确认删除此分类吗?"
                                                @confirm="categoryDelete(scope.$index, scope.row)">
                                     <el-button
@@ -158,6 +159,18 @@
             }
         },
         methods: {
+            updateCategory(category){
+                //获取用户输入的新的分类名称
+                 let name = prompt("请输入新的分类名称!");
+                 if (name!=null&&name.trim()!=""){
+                     //把新的名字赋值给分类对象
+                     category.name = name;
+                     //发出修改请求
+                     axios.post("/category/update",category).then(function () {
+                         v.$message.success("修改完成!");
+                     })
+                 }
+            },
             bannerDelete(i,banner){
                 //发出删除轮播图请求
               axios.get("/banner/delete?id="+banner.id).then(function () {
@@ -178,12 +191,10 @@
                    let name = prompt("请输入分类名称");
                    if (name!=null&&name.trim()!=""){
                        //发出添加分类的请求
-                       axios.get("/category/insert?name="+name).then(function () {
-                           location.reload();//刷新页面
+                       axios.get("/category/insert?name="+name).then(function (response) {
+                           v.categoryArr = response.data;
                        })
                    }
-
-
                 }else if (key=='2-2'){
                     v.$message("添加轮播图");
                 }else if (key=='3-2'){
