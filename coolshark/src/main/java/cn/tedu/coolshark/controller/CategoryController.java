@@ -3,6 +3,7 @@ package cn.tedu.coolshark.controller;
 import cn.tedu.coolshark.entity.Category;
 import cn.tedu.coolshark.mapper.CategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,11 @@ public class CategoryController {
         mapper.insert(name);
         //把所有分类返回给客户端
         return mapper.select();
+    }
+
+    @RequestMapping("/category/update")
+    public void update(@RequestBody Category category){
+        mapper.update(category);
     }
 
 }
