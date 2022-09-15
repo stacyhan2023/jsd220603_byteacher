@@ -13,7 +13,11 @@ public class Product {
     private Integer viewCount; //浏览量
     private Date created;  //发布时间
     private Integer categoryId; //分类id
-
+    /*
+    create table product(id int primary key auto_increment,title varchar(50),
+    url varchar(100),price double(10,2),old_price double(10,2),sale_count int,
+    num int,view_count int,created timestamp,category_id int);
+    * */
     @Override
     public String toString() {
         return "Product{" +
