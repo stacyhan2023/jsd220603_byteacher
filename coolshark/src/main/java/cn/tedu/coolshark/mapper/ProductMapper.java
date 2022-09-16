@@ -48,4 +48,8 @@ public interface ProductMapper {
     @Select("select id,title,price,old_price,sale_count,url,view_count," +
             "created from product where id=#{id}")
     Product selectById(int id);
+
+    @Update("update product set view_count=view_count+1 where id=#{id}")
+    void updateViewCountById(int id);
+
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.Date;
 import java.util.List;
@@ -58,8 +59,19 @@ public class ProductController {
         return mapper.selectByWd(wd);
     }
 
+    //  id=5
     @RequestMapping("/product/selectById")
-    public Product selectById(int id){
+    public Product selectById(int id, HttpSession session){
+        //从会话对象中取出当前商品id相关的信息
+        String info = (String) session.getAttribute("view"+id);
+        //如果没有取到 代表没有浏览过
+        if (info==null){
+            //让浏览量+1
+            mapper.updateViewCountById(id);
+            //把当前商品的id保存到会话对象里面
+            session.setAttribute("view"+id,"isVisible");
+        }
+
         System.out.println("id = " + id);
         return mapper.selectById(id);
     }
