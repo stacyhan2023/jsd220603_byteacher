@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class ProductController {
@@ -19,4 +20,10 @@ public class ProductController {
         System.out.println("product = " + product);
         mapper.insert(product);
     }
+
+    @RequestMapping("/product/select")
+    public List<Product> select(){
+        return mapper.select();
+    }
+
 }
