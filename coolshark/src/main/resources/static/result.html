@@ -123,16 +123,17 @@
             axios.get("/category/select").then(function (response) {
                 v.categoryArr = response.data;
             })
-            //发请求获取所有轮播图信息
-            axios.get("/banner/select").then(function (response) {
-                v.bannerArr = response.data;
-            })
-            //发请求获取排行榜数据
-            axios.get("/product/selectTop").then(function (response) {
-                v.topArr = response.data;
-            })
-            //发请求获取所有商品数据
-            axios.get('/product/selectByCid'+location.search).then(function (response) {
+
+            //判断地址栏中是否包含wd
+            // if (location.search.indexOf("wd")!=-1){//包含wd
+            //      url = "/product/selectByWd"+location.search;
+            // }else{//包含id
+            //      url = "/product/selectByCid"+location.search;
+            // }
+            let url = location.search.indexOf("wd")!=-1?
+                "/product/selectByWd"+location.search:"/product/selectByCid"+location.search;
+            //发请求获取某个分类下所有商品数据
+            axios.get(url).then(function (response) {
                 v.productArr = response.data;
             })
 

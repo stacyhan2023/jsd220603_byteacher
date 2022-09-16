@@ -49,8 +49,8 @@
                     <el-menu-item v-for="c in categoryArr" :index="c.id">{{c.name}}</el-menu-item>
 
                     <div style="float:right;position: relative;top: 10px">
-                        <el-input placeholder="请输入搜索内容">
-                            <el-button slot="append" icon="el-icon-search"></el-button>
+                        <el-input v-model="wd" placeholder="请输入搜索内容">
+                            <el-button @click="search()" slot="append" icon="el-icon-search"></el-button>
                         </el-input>
                     </div>
                 </el-menu>
@@ -129,10 +129,14 @@
                 bannerArr:[],
                 activeIndex:"1",
                 topArr:[],
-                productArr:[]
+                productArr:[],
+                wd:""
             }
         },
         methods: {
+            search(){
+                location.href = "/result.html?wd="+v.wd;
+            },
             handleSelect(key,keyPath){
                 console.log(key,keyPath);
                 //跳转到显示结果的页面  key代表的就是分类id
