@@ -39,7 +39,6 @@
             </div>
             <!--导航菜单开始-->
             <div style="background-color: #82c8ec">
-
                 <el-menu style="width: 1200px;margin: 0 auto"
                         :default-active="activeIndex" class="el-menu-demo"
                          background-color="#82c8ec"
@@ -109,7 +108,7 @@
                 activeIndex:"1",
                 topArr:[],
                 productArr:[],
-                wd:""
+                wd:"",
             }
         },
         methods: {
@@ -120,8 +119,10 @@
             },
             handleSelect(key,keyPath){
                 console.log(key,keyPath);
-                //跳转到显示结果的页面  key代表的就是分类id
-                location.href = "/result.html?id="+key;
+                //key代表分类的id  通过分类id查询分类下的商品信息
+                axios.get("/product/selectByCid?id="+key).then(function (response) {
+                    v.productArr = response.data;
+                })
             }
         },
         created:function () {
@@ -142,6 +143,15 @@
             axios.get(url).then(function (response) {
                 v.productArr = response.data;
             })
+            //判断地址中是否包含id
+            if (location.search.indexOf("id")!=-1){
+                //取出id的值    location.search =  ?id=3
+                let id = location.search.split("=")[1];
+                //created方法是Vue对象初始化过程中调用的方法,也就是在此方法中Vue对象
+                //还没有创建完成, 所以不能通过v访问(实例化的Vue对象还没有赋值给v变量)
+                // 对象初始化完成之前想访问Vue对象 可以通过this来访问
+                this.activeIndex = id;
+            }
 
         }
     })
