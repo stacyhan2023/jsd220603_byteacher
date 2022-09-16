@@ -81,9 +81,57 @@
 
   insert into r_m values(1,1),(2,1),(2,2),(2,3),(2,4),(3,5);
 
+- 关联查询练习题:
 
+  1. 查询刘德华拥有哪些角色
 
+     select r.name
 
+     from user u join u_r ur on u.id=ur.uid
+
+     join role r  on r.id=ur.rid where u.name='刘德华';
+
+  2. 查询女游客对应的用户都有谁
+
+     select u.name
+
+     from user u join u_r ur on u.id=ur.uid
+
+     join role r  on r.id=ur.rid   where r.name='女游客';
+
+  3. 查询男管理员对应哪些权限
+
+     select  m.name
+
+     from role r join r_m rm on r.id=rm.rid
+
+     join module m on m.id=rm.mid  where  r.name='男管理员';
+
+  4. 查询刘德华拥有哪些权限
+
+     select m.name
+
+     from user u join u_r ur on u.id=ur.uid 
+
+     join r_m rm on rm.rid=ur.rid
+
+     join module m on m.id=rm.mid
+
+     where u.name='刘德华';
+
+  5. 查询有女浏览权限的用户都有谁
+
+     select u.name
+
+     from user u join u_r ur on u.id=ur.uid 
+
+     join r_m rm on rm.rid=ur.rid
+
+     join module m on m.id=rm.mid 
+
+     where m.name='女浏览';
+
+  
 
 
 
