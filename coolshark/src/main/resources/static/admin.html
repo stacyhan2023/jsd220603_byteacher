@@ -117,10 +117,13 @@
                     </el-table-column>
                     <el-table-column label="操作">
                         <template slot-scope="scope">
-                            <el-button
-                                    size="mini"
-                                    type="danger"
-                                    @click="categoryDelete(scope.$index, scope.row)">删除</el-button>
+                            <el-popconfirm title="您确认删除此商品吗?"
+                                           @confirm="productDelete(scope.$index, scope.row)">
+                                <el-button
+                                        slot="reference"
+                                        size="mini"
+                                        type="danger">删除</el-button>
+                            </el-popconfirm>
                         </template>
                     </el-table-column>
                 </el-table>
@@ -148,6 +151,13 @@
             }
         },
         methods: {
+            productDelete(i,product){
+                //发出删除请求
+                axios.get("/product/delete?id="+product.id).then(function () {
+                    //删除数组中的数据
+                    v.productArr.splice(i,1);
+                })
+            },
             updateCategory(category){
                 //获取用户输入的新的分类名称
                  let name = prompt("请输入新的分类名称!");
