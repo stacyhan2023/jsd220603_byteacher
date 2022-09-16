@@ -35,5 +35,9 @@ public class ProductController {
         mapper.deleteById(id);
 
     }
+    @RequestMapping("/product/selectTop")
+    public List<Product> selectTop(){
+        return mapper.selectTop();
+    }
 
 }

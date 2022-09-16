@@ -33,4 +33,8 @@ public interface ProductMapper {
     void deleteById(int id);
 
 
+    @Select("select id,title,sale_count from product order by sale_count desc limit 0,6")
+    List<Product> selectTop();
+
+
 }
