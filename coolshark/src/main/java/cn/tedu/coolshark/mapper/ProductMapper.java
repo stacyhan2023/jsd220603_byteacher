@@ -41,6 +41,7 @@ public interface ProductMapper {
 
     @Select("select id,title,price,old_price,sale_count,url from product where category_id=#{id}")
     List<Product> selectByCid(int id);
-
-
+//
+    @Select("select id,title,price,old_price,sale_count,url from product where title like concat('%',#{wd},'%')")
+    List<Product> selectByWd(String wd);
 }

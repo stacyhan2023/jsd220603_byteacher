@@ -51,4 +51,11 @@ public class ProductController {
         return mapper.selectByCid(id);
     }
 
+    @RequestMapping("/product/selectByWd")
+    public List<Product> selectByWd(String wd){
+        System.out.println("wd = " + wd);
+
+        return mapper.selectByWd(wd);
+    }
+
 }
