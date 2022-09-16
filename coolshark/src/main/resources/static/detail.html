@@ -18,7 +18,7 @@
         <el-header height="150px">
             <div style="width: 1200px;margin: 0 auto">
                 <img src="imgs/logo.png"  style="width: 300px;vertical-align: middle" alt="">
-                <a href="">首页</a><el-divider direction="vertical"></el-divider>
+                <a href="/">首页</a><el-divider direction="vertical"></el-divider>
                 <a href="">热点资讯</a><el-divider direction="vertical"></el-divider>
                 <a href="">商家入驻</a><el-divider direction="vertical"></el-divider>
                 <a href="">社会招聘</a><el-divider direction="vertical"></el-divider>
@@ -58,6 +58,7 @@
                     <el-divider></el-divider>
                     <p style="font-size: 15px;color: #666">
                         销量:{{product.saleCount}} 浏览量:{{product.viewCount}}
+                        <span style="float: right">{{product.created}}</span>
                     </p>
                     <p style="font-size: 25px;font-weight: bold">
                         ￥ {{product.price}}
@@ -121,11 +122,12 @@
             },
             handleSelect(key,keyPath){
                 console.log(key,keyPath);
+                location.href="/result.html?id="+key;
             }
         },
         created:function(){
-            axios.get("/category/select").then(function (reponse) {
-                v.categoryArr = reponse.data;
+            axios.get("/category/select").then(function (response) {
+                v.categoryArr = response.data;
             })
             axios.get("/product/selectById"+location.search).then(function (response) {
                 v.product = response.data;
