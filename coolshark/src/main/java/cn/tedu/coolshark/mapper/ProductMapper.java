@@ -38,4 +38,9 @@ public interface ProductMapper {
 
     @Select("select id,title,price,old_price,sale_count,url from product")
     List<Product> selectIndex();
+
+    @Select("select id,title,price,old_price,sale_count,url from product where category_id=#{id}")
+    List<Product> selectByCid(int id);
+
+
 }

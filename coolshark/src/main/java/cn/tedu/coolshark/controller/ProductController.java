@@ -45,4 +45,10 @@ public class ProductController {
         return mapper.selectIndex();
     }
 
+    @RequestMapping("/product/selectByCid")
+    public List<Product> selectByCid(int id){
+
+        return mapper.selectByCid(id);
+    }
+
 }
