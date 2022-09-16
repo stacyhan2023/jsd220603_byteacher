@@ -40,4 +40,9 @@ public class ProductController {
         return mapper.selectTop();
     }
 
+    @RequestMapping("/product/selectIndex")
+    public List<Product> selectIndex(){
+        return mapper.selectIndex();
+    }
+
 }

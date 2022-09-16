@@ -36,5 +36,6 @@ public interface ProductMapper {
     @Select("select id,title,sale_count from product order by sale_count desc limit 0,6")
     List<Product> selectTop();
 
-
+    @Select("select id,title,price,old_price,sale_count,url from product")
+    List<Product> selectIndex();
 }
