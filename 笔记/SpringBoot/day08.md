@@ -28,3 +28,22 @@
 2. 在ProductController中添加selectTop方法处理/product/selectTop,方法中调用mapper的selectTop方法 把接收到的list集合直接响应给客户端
 3. 实现mapper中的selectTop方法 ,在SQL语句中通过销量降序排序只查询前6条数据
 
+### 首页商品展示步骤:
+
+1. 把首页中productArr数组中的假数据删除, 在created方法中向/product/selectForIndex发出请求把请求到的数组赋值给productArr 
+2. 在ProductController中添加selectForIndex方法处理/product/selectForIndex,方法中调用mapper的selectForIndex方法 把接收到的list集合直接响应给客户端
+3. 实现mapper中的selectForIndex方法
+
+### 点击商品查看详情步骤:
+
+1. 首页的图片和商品标题 改成超链接 请求地址为 /detail.html?id=xxx 
+2. 在detail.html页面中的created方法中 向/product/selectById发出请求, 查询到的商品对象赋值给Vue里面的对象 然后页面中的标签和此对象进行绑定 
+3. 在ProductController中添加selectById方法处理/product/selectById请求, 方法中调用mapper的selectById方法 通过id查询到商品信息 响应给客户端
+4. 实现mapper里面的selectById方法   
+
+
+
+
+
+
+
