@@ -45,4 +45,7 @@ public interface ProductMapper {
     @Select("select id,title,price,old_price,sale_count,url from product where title like concat('%',#{wd},'%')")
     List<Product> selectByWd(String wd);
 
+    @Select("select id,title,price,old_price,sale_count,url,view_count," +
+            "created from product where id=#{id}")
+    Product selectById(int id);
 }

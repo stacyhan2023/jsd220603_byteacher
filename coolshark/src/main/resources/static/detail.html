@@ -33,16 +33,11 @@
                          text-color="#fff"
                          active-text-color="#fff"
                          mode="horizontal" @select="handleSelect">
-                    <el-menu-item index="1">精彩活动</el-menu-item>
-                    <el-menu-item index="2">当季女装</el-menu-item>
-                    <el-menu-item index="3">品牌男装</el-menu-item>
-                    <el-menu-item index="4">环球美食</el-menu-item>
-                    <el-menu-item index="5">医药健康</el-menu-item>
-                    <el-menu-item index="6">美妆彩妆</el-menu-item>
-                    <el-menu-item index="7">母婴产品</el-menu-item>
+                    <el-menu-item v-for="c in categoryArr" :index="c.id">{{c.name}}</el-menu-item>
+
                     <div style="float:right;position: relative;top: 10px">
-                        <el-input placeholder="请输入搜索内容">
-                            <el-button slot="append" icon="el-icon-search"></el-button>
+                        <el-input v-model="wd" placeholder="请输入搜索内容">
+                            <el-button @click="search()" slot="append" icon="el-icon-search"></el-button>
                         </el-input>
                     </div>
                 </el-menu>
@@ -53,20 +48,20 @@
             <el-row gutter="20">
                 <el-col span="12">
                     <el-card>
-                        <img src="imgs/a.jpg" width="100%" alt="">
+                        <img :src="product.url" width="100%" alt="">
                     </el-card>
                 </el-col>
                 <el-col span="12">
                     <p style="font-size: 25px">
-                        森马牛仔裤女宽松慢跑裤运动风2022春季新款显瘦束脚长裤复古
+                        {{product.title}}
                     </p>
                     <el-divider></el-divider>
                     <p style="font-size: 15px;color: #666">
-                        销量:342 浏览量:200
+                        销量:{{product.saleCount}} 浏览量:{{product.viewCount}}
                     </p>
                     <p style="font-size: 25px;font-weight: bold">
-                        ￥ 68
-                        <span style="font-size: 15px;color: #666">原价:<s>99</s></span>
+                        ￥ {{product.price}}
+                        <span style="font-size: 15px;color: #666">原价:<s>{{product.oldPrice}}</s></span>
                     </p>
                     <el-row gutter="20">
                         <el-col span="8">
@@ -115,15 +110,26 @@
         data: function () {
             return {
                 activeIndex:"1",
-                topArr:[{title:"小米电视",saleCount:685},{title:"李宁毛巾",saleCount:457},
-                    {title:"安踏拖鞋",saleCount:185},{title:"华为手机",saleCount:57},
-                    {title:"耐克篮球",saleCount:32},{title:"联想电脑",saleCount:18}]
+                categoryArr:[],
+                product:{},
+                wd:""
             }
         },
         methods: {
+            search(){
+              location.href = "/result.html?wd="+v.wd;
+            },
             handleSelect(key,keyPath){
                 console.log(key,keyPath);
             }
+        },
+        created:function(){
+            axios.get("/category/select").then(function (reponse) {
+                v.categoryArr = reponse.data;
+            })
+            axios.get("/product/selectById"+location.search).then(function (response) {
+                v.product = response.data;
+            })
         }
     })
 </script>
