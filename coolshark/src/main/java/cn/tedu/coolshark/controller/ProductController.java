@@ -79,4 +79,11 @@ public class ProductController {
     public Product selectByIdForUpdate(int id){
         return mapper.selectByIdForUpdate(id);
     }
+
+    @RequestMapping("/product/update")
+    public void update(@RequestBody Product product){
+        System.out.println("product = " + product);
+        //调用mapper的update方法修改
+        mapper.update(product);
+    }
 }

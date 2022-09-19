@@ -40,6 +40,7 @@
 
             </el-form-item>
             <el-form-item label="商品图片">
+                <img v-if="isShow" :src="p.url" width="100" height="100">
                 <!--limit控制图片数量-->
                 <el-upload
                         name="pic"
@@ -56,7 +57,7 @@
                 </el-dialog>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="send()">发布商品</el-button>
+                <el-button type="primary" @click="update()">修改商品</el-button>
             </el-form-item>
         </el-form>
     </el-card>
@@ -73,6 +74,7 @@
         el: '#app',
         data: function () {
             return {
+                isShow:true,
                 dialogImageUrl: '',
                 dialogVisible: false,
                 p:{title:"",price:"",oldPrice:"",
@@ -93,14 +95,16 @@
         methods: {
             handleSuccess(response,file,fileList){
                 v.p.url = response;
+                v.isShow = false;
             },
-            send(){
+            update(){
                 if (v.p.url==""){
                     v.$message.error("请选择上传的图片!");
                     return;
                 }
+
                 //发出添加商品的请求
-                axios.post("/product/insert",v.p).then(function () {
+                axios.post("/product/update",v.p).then(function () {
                     location.href="/admin.html";
                 })
             },

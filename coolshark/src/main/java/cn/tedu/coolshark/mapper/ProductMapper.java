@@ -56,4 +56,7 @@ public interface ProductMapper {
             "created,category_id from product where id=#{id}")
     Product selectByIdForUpdate(int id);
 
+    @Update("update product set title=#{title},price=#{price},old_price=#{oldPrice}," +
+            "sale_count=#{saleCount},num=#{num},url=#{url},category_id=#{categoryId} where id=#{id}")
+    void update(Product product);
 }
