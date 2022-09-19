@@ -41,6 +41,13 @@
 
 - 登录成功时将用户名和密码通过Cookie下发给客户端,保存在客户端浏览器中
 
+1. 在login.html页面中添加记住用户名和密码的控件 和user里面的rem属性进行双向绑定
+2. 在User实体类中添加rem属性 重新生成get set方法 和tostring方法
+3. 在UserController 登录成功的时候 创建cookie把用户名和密码装进cookie 发送给客户端
+4. 在login.html页面的created方法中获取cookie里面的用户名和密码显示到页面中 
+
+
+
 
 
 

@@ -5,6 +5,7 @@ public class User {
     private String username;
     private String password;
     private String nick;
+    private Boolean rem;
 
     @Override
     public String toString() {
@@ -13,6 +14,7 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", nick='" + nick + '\'' +
+                ", rem=" + rem +
                 '}';
     }
 
@@ -46,5 +48,13 @@ public class User {
 
     public void setNick(String nick) {
         this.nick = nick;
+    }
+
+    public Boolean getRem() {
+        return rem;
+    }
+
+    public void setRem(Boolean rem) {
+        this.rem = rem;
     }
 }
