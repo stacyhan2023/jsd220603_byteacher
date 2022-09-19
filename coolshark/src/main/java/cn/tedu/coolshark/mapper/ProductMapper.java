@@ -52,4 +52,8 @@ public interface ProductMapper {
     @Update("update product set view_count=view_count+1 where id=#{id}")
     void updateViewCountById(int id);
 
+    @Select("select id,title,price,old_price,sale_count,url,num," +
+            "created,category_id from product where id=#{id}")
+    Product selectByIdForUpdate(int id);
+
 }

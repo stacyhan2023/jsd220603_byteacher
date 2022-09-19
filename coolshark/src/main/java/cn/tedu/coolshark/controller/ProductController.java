@@ -74,4 +74,9 @@ public class ProductController {
         System.out.println("id = " + id);
         return mapper.selectById(id);
     }
+
+    @RequestMapping("/product/update/selectById")
+    public Product selectByIdForUpdate(int id){
+        return mapper.selectByIdForUpdate(id);
+    }
 }
