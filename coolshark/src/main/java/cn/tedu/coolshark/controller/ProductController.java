@@ -3,6 +3,7 @@ package cn.tedu.coolshark.controller;
 import cn.tedu.coolshark.entity.Product;
 import cn.tedu.coolshark.mapper.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,10 @@ import java.util.List;
 
 @RestController
 public class ProductController {
+
+    @Value("${dirPath}")
+    private String dirPath;
+
     @Autowired
     ProductMapper mapper;
     @RequestMapping("/product/insert")
@@ -31,7 +36,7 @@ public class ProductController {
     public void delete(int id){
         //通过id查询到文件路径 然后删除文件
         String url = mapper.selectUrlById(id);
-        new File("e:/files"+url).delete();
+        new File(dirPath+url).delete();
         //删除数据库中的商品数据
         mapper.deleteById(id);
 
