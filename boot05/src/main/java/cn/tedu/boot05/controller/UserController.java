@@ -53,7 +53,6 @@ public class UserController {
                     response.addCookie(c2);
                 }
 
-
                 return 1;//登录成功
             }
             return 3;//密码错误
