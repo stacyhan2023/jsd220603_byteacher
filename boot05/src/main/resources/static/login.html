@@ -7,8 +7,9 @@
 <body>
 <div>
   <h1>登录页面</h1>
-  <input type="text" v-model="user.username" placeholder="用户名">
-  <input type="password" v-model="user.password" placeholder="密码">
+  <input type="text" v-model="user.username" placeholder="用户名"><br>
+  <input type="password" v-model="user.password" placeholder="密码"><br>
+    <input type="checkbox" v-model="user.rem">记住用户名和密码<br>
   <input type="button" value="登录" @click="login()">
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
@@ -19,7 +20,8 @@
      data:{
        user:{
          username:"",
-         password:""
+         password:"",
+           rem:false
        }
      },
      methods:{

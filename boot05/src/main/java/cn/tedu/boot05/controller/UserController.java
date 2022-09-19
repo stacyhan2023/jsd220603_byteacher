@@ -34,6 +34,9 @@ public class UserController {
     }
     @RequestMapping("/login")
     public int login(@RequestBody User user){
+        System.out.println("user = " + user);
+
+
         User u = mapper.selectByUsername(user.getUsername());
         if (u!=null){
             if (user.getPassword().equals(u.getPassword())){
