@@ -71,9 +71,7 @@ public class ProductController {
             //把当前商品的id保存到会话对象里面
             session.setAttribute("view"+id,"isVisible");
         }
-
         System.out.println("id = " + id);
         return mapper.selectById(id);
     }
-
 }

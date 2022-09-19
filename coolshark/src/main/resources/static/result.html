@@ -62,10 +62,14 @@
             <el-row gutter="20">
                 <el-col span="6" v-for="p in productArr">
                     <el-card>
-                        <img class="p_img" :src="p.url" width="100%" height="233" alt="">
+                        <a :href="'/detail.html?id='+p.id">
+                            <img class="p_img" :src="p.url" width="100%" height="233" alt="">
+                        </a>
                         <div>
                             <p style="font-size: 15px;height: 40px;margin-top: 0">
-                                {{p.title}}
+                                <a :href="'/detail.html?id='+p.id">
+                                    {{p.title}}
+                                </a>
                             </p>
                             <p style="font-size: 12px;color: #666">
                                 ￥{{p.price}} <s>{{p.oldPrice}}</s>
