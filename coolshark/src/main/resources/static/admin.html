@@ -11,7 +11,7 @@
         <el-header style="background-color: #0095d7">
             <h1 style="color: white;font-size: 22px">
                 CoolShark商城后台管理系统
-                <span style="float:right;font-size: 15px">欢迎xxx回来!<a href="">退出登录</a></span>
+                <span style="float:right;font-size: 15px">欢迎{{user.nick}}回来!<a href="">退出登录</a></span>
             </h1>
         </el-header>
         <el-container>
@@ -151,7 +151,8 @@
                 currentIndex:"1-1",
                 categoryArr:[],
                 bannerArr:[],
-                productArr:[]
+                productArr:[],
+                user:{}
             }
         },
         methods: {
@@ -220,6 +221,16 @@
             })
             axios.get("/product/select").then(function (response) {
                 v.productArr = response.data;
+            })
+            //发请求获取当前登录的用户对象
+            axios.get("/currentUser").then(function (response) {
+                //如果服务器返回的是空字符串代表没有登录
+                if (response.data==""){
+                    alert("请先登录!");
+                    location.href = "/login.html";
+                }else{
+                    v.user = response.data;
+                }
             })
         }
     })
