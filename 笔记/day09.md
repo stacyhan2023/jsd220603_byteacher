@@ -46,15 +46,27 @@
 3. 在UserController 登录成功的时候 创建cookie把用户名和密码装进cookie 发送给客户端
 4. 在login.html页面的created方法中获取cookie里面的用户名和密码显示到页面中 
 
+### timestamp时间类型自动更新问题
+
+- timestamp类型默认情况下是 当数据发生改变时，时间自动更新为当前系统时间
+
+- 关闭自动更新
+
+  use cs;
+
+​		alter table product change created created timestamp not null default current_timestamp;
+
+- 打开自动更新
+
+  alter table product change created created timestamp not null default current_timestamp on update current_timestamp;
 
 
 
+### 过滤器Filter
 
-
-
-
-
-
+- 作用: 过滤器代码可以在客户端请求到资源之前或之后执行, 可以将请求某些资源重复性的代码(比如:判断是否登录)放在过滤器里面,达到重用的作用, 这样只需要写一次即可 , 从而提高开发效率
+- 如何使用过滤器? 
+  - 创建Filter类文件
 
 
 

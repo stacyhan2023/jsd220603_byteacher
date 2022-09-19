@@ -39,5 +39,9 @@ public class UserController {
         //把登录成功时的用户对象从会话对象中取出响应给客户端
         return (User) session.getAttribute("user");
     }
+    @RequestMapping("/logout")
+    public void logout(HttpSession session){
+        session.removeAttribute("user");
+    }
 
 }
